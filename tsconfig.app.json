@@ -14,8 +14,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node"],
-    "allowJs": true, 
 
     /* Linting */
     "strict": true,
@@ -25,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "postcss.config.js"]
+  "include": ["src"]
 }
