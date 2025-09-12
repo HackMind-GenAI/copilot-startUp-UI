@@ -6,6 +6,8 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,   // ✅ add this
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "moduleResolution": "node",
