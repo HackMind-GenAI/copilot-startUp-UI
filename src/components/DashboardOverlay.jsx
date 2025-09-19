@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import { dealData } from '../data/dealData.js';
 
-const DashboardOverlay = ({ onClose }) => {
-  // Use dynamic data from API structure - in real app this would come from props or API call
+import { appConfig } from '../data/appConfig';
+
+const DashboardOverlay = ({ onClose, dealData }) => {
+  // Use dynamic data passed as props
   const deal = dealData;
+  const { dashboard } = appConfig;
   const [activeTab, setActiveTab] = useState('overview');
   const [showAIPanel, setShowAIPanel] = useState(false);
   const [aiMessages, setAiMessages] = useState([
     {
       type: 'ai',
-      text: "Hello! I'm your investment AI assistant. I can help you analyze company data, compare metrics, assess risks, and provide investment insights. What would you like to explore?"
+      text: dashboard.aiAssistant.welcomeMessage
     }
   ]);
   const [aiInput, setAiInput] = useState('');
@@ -279,7 +281,7 @@ const DashboardOverlay = ({ onClose }) => {
 • Market conditions artificially favorable - growth may not be company-specific
 
 🔴 **Competitive Position Reality:**
-• Only ${deal.market.market_share} market share vs established players with 15%+
+• Only ${deal.market.market_share} market share vs established players with ${deal.metrics.established_players_market_share}
 • "Market leading" claims may be misleading or narrowly defined
 • Vulnerable to well-funded competitors entering space
 
@@ -291,7 +293,7 @@ const DashboardOverlay = ({ onClose }) => {
 **Key Questions for Due Diligence:**
 • Can growth continue without promotional pricing?
 • What if top 3 competitors launch competing products?
-• Is the team capable of executing at 10x scale?
+• Is the team capable of executing at ${deal.metrics.scale_execution_target} scale?
 • How defensible is the technology moat really?
 
 **Recommendation:** Conduct deeper due diligence on customer concentration, competitive moats, and stress-test financial projections under adverse scenarios.`;
@@ -305,23 +307,17 @@ const DashboardOverlay = ({ onClose }) => {
 ${deal.competitors.map(comp => `• ${comp.name}: ${comp.market_share} (${comp.valuation} valuation)`).join('\n')}
 
 🟢 **Competitive Advantages:**
-• Superior ${deal.metrics.grossMargin} gross margin vs industry average 68%
-• Lower ${deal.metrics.churnRate} churn vs competitor average 8.2%
-• 30% faster implementation than leading competitors
-• More cost-effective pricing (25% below premium players)
+${deal.competitive_analysis.advantages.map(advantage => `• ${advantage}`).join('\n')}
 
 🔴 **Competitive Disadvantages:**
-• Significantly smaller customer base (3x less than market leader)
-• Lower total funding raised vs established competitors
-• Limited brand recognition and enterprise partnerships
-• Newer market presence with less proven track record
+${deal.competitive_analysis.challenges.map(challenge => `• ${challenge}`).join('\n')}
 
 **Strategic Positioning:**
-• **Differentiation Strategy**: Focus on superior UX and faster deployment
-• **Cost Leadership**: 25% more affordable than premium alternatives  
-• **Innovation Edge**: Next-gen AI features ahead of market adoption
+• **Differentiation Strategy**: ${deal.competitive_analysis.competitive_strategy.differentiation_focus}
+• **Cost Leadership**: ${deal.competitive_analysis.competitive_strategy.cost_leadership}
+• **Innovation Edge**: ${deal.competitive_analysis.competitive_strategy.innovation_edge}
 
-**Investment Thesis:** Strong growth potential in underserved 35% market segment with better unit economics than competitors, but faces execution risk scaling against well-funded incumbents.`;
+**Investment Thesis:** Strong growth potential in underserved ${deal.metrics.underserved_market_share} market segment with better unit economics than competitors, but faces execution risk scaling against well-funded incumbents.`;
     } else if (question.includes('growth drivers')) {
       return `Based on ${deal.basicInfo.name}'s comprehensive data analysis, I've identified several key growth drivers:
 
@@ -432,46 +428,46 @@ What specific aspect would you like me to dive deeper into?`;
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="glass-card p-8 rounded-2xl">
-                <h3 className="text-3xl font-bold text-navy mb-6">Company Overview</h3>
+                <h3 className="text-3xl font-bold text-navy mb-6">{dashboard.sections.companyOverview.title}</h3>
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Founded</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.founded}</h4>
                     <p className="text-gray-600">{deal.basicInfo.founded}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Headquarters</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.headquarters}</h4>
                     <p className="text-gray-600">{deal.basicInfo.headquarters}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Sector</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.sector}</h4>
                     <p className="text-gray-600 capitalize">{deal.basicInfo.sector}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Stage</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.stage}</h4>
                     <p className="text-gray-600 capitalize">{deal.basicInfo.stage.replace('-', ' ')}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Employees</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.employees}</h4>
                     <p className="text-gray-600">{deal.basicInfo.employees}</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-navy mb-2">Valuation</h4>
+                    <h4 className="font-semibold text-navy mb-2">{dashboard.sections.companyOverview.fields.valuation}</h4>
                     <p className="text-gold font-bold text-xl">{deal.basicInfo.valuation}</p>
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-navy mb-3">Company Description</h4>
+                  <h4 className="font-semibold text-navy mb-3">{dashboard.sections.companyOverview.fields.description}</h4>
                   <p className="text-gray-600 leading-relaxed text-lg">{deal.basicInfo.description}</p>
                 </div>
               </div>
               <div className="glass-card p-8 rounded-2xl">
-                <h3 className="text-3xl font-bold text-navy mb-6">Revenue Growth Trajectory</h3>
+                <h3 className="text-3xl font-bold text-navy mb-6">{dashboard.sections.revenueGrowth.title}</h3>
                 <canvas ref={revenueChartRef} width="400" height="200"></canvas>
               </div>
             </div>
             <div className="space-y-6">
               <div className="glass-card p-6 rounded-2xl">
-                <h3 className="text-xl font-bold text-navy mb-6">Key Performance Metrics</h3>
+                <h3 className="text-xl font-bold text-navy mb-6">{dashboard.sections.keyMetrics.title}</h3>
                 <div className="space-y-4">
                   {Object.entries(deal.metrics).slice(0, 6).map(([key, value]) => (
                     <div key={key} className="flex justify-between items-center py-3 border-b border-gray-100">
@@ -748,19 +744,17 @@ What specific aspect would you like me to dive deeper into?`;
                     <div className="p-4 bg-green-50 rounded-lg">
                       <h5 className="font-semibold text-green-800 mb-2">🟢 Advantages vs. Competitors</h5>
                       <ul className="text-sm text-green-700 space-y-1">
-                        <li>• 30% faster implementation than CompetitorX Pro</li>
-                        <li>• Superior {deal.metrics.grossMargin} gross margin vs industry 68%</li>
-                        <li>• Lower {deal.metrics.churnRate} churn vs competitor average 8.2%</li>
-                        <li>• More cost-effective pricing model</li>
+                        {deal.competitive_analysis.advantages.map((advantage, index) => (
+                          <li key={index}>• {advantage}</li>
+                        ))}
                       </ul>
                     </div>
                     <div className="p-4 bg-red-50 rounded-lg">
                       <h5 className="font-semibold text-red-800 mb-2">🔴 Competitive Challenges</h5>
                       <ul className="text-sm text-red-700 space-y-1">
-                        <li>• Smaller customer base vs MarketLeader (3x difference)</li>
-                        <li>• Less funding raised compared to top competitors</li>
-                        <li>• Newer brand recognition in the market</li>
-                        <li>• Limited enterprise-level partnerships</li>
+                        {deal.competitive_analysis.challenges.map((challenge, index) => (
+                          <li key={index}>• {challenge}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -786,8 +780,8 @@ What specific aspect would you like me to dive deeper into?`;
                         <td className="p-3 font-semibold text-navy">{deal.basicInfo.name} (Our Investment)</td>
                         <td className="p-3">{deal.market.market_share}</td>
                         <td className="p-3 text-green-600 font-semibold">{deal.basicInfo.growth}</td>
-                        <td className="p-3">92%</td>
-                        <td className="p-3 text-green-600">9.2/10</td>
+                        <td className="p-3">{deal.metrics.customer_satisfaction}</td>
+                        <td className="p-3 text-green-600">{deal.metrics.technology_score}</td>
                         <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Strong Buy</span></td>
                       </tr>
                       {deal.competitors.map((competitor, index) => (
@@ -795,8 +789,8 @@ What specific aspect would you like me to dive deeper into?`;
                           <td className="p-3">{competitor.name}</td>
                           <td className="p-3 font-semibold text-blue-600">{competitor.market_share}</td>
                           <td className="p-3">{competitor.growth}</td>
-                          <td className="p-3">87%</td>
-                          <td className="p-3">8.5/10</td>
+                          <td className="p-3">{deal.metrics.competitor_avg_satisfaction}</td>
+                          <td className="p-3">{deal.metrics.competitor_avg_tech_score}</td>
                           <td className="p-3">
                             <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                               index === 0 ? 'bg-blue-100 text-blue-800' : 
@@ -819,15 +813,15 @@ What specific aspect would you like me to dive deeper into?`;
                   <div className="space-y-3">
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <p className="text-blue-800 font-semibold text-sm">Differentiation Focus</p>
-                      <p className="text-blue-600 text-xs">Superior user experience and faster deployment</p>
+                      <p className="text-blue-600 text-xs">{deal.competitive_analysis.competitive_strategy.differentiation_focus}</p>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <p className="text-green-800 font-semibold text-sm">Cost Leadership</p>
-                      <p className="text-green-600 text-xs">25% more affordable than premium competitors</p>
+                      <p className="text-green-600 text-xs">{deal.competitive_analysis.competitive_strategy.cost_leadership}</p>
                     </div>
                     <div className="p-3 bg-purple-50 rounded-lg">
                       <p className="text-purple-800 font-semibold text-sm">Innovation Edge</p>
-                      <p className="text-purple-600 text-xs">Next-gen AI features ahead of market</p>
+                      <p className="text-purple-600 text-xs">{deal.competitive_analysis.competitive_strategy.innovation_edge}</p>
                     </div>
                   </div>
                 </div>
@@ -835,11 +829,11 @@ What specific aspect would you like me to dive deeper into?`;
                   <h4 className="font-semibold text-navy mb-4">Market Opportunity</h4>
                   <div className="space-y-3">
                     <div className="text-center p-3 bg-gold bg-opacity-20 rounded-lg">
-                      <p className="text-navy font-bold text-lg">$2.8B</p>
+                      <p className="text-navy font-bold text-lg">{deal.metrics.addressable_market_gap}</p>
                       <p className="text-gray-600 text-xs">Addressable Market Gap</p>
                     </div>
                     <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <p className="text-navy font-bold text-lg">35%</p>
+                      <p className="text-navy font-bold text-lg">{deal.metrics.underserved_market_share}</p>
                       <p className="text-gray-600 text-xs">Underserved Market Share</p>
                     </div>
                   </div>
@@ -963,7 +957,7 @@ What specific aspect would you like me to dive deeper into?`;
                         <h5 className="font-semibold text-red-800 mb-2">Founder Claim: "Market Leading Position"</h5>
                         <p className="text-red-700 text-sm mb-2"><strong>Counter-Argument:</strong></p>
                         <ul className="text-red-600 text-sm space-y-1">
-                          <li>• Only 4.2% market share vs MarketLeader's 15.8%</li>
+                          <li>• Only ${deal.market.market_share} market share vs market leader's ${deal.metrics.market_leader_share}</li>
                           <li>• Definition of "leading" unclear and possibly misleading</li>
                           <li>• Market position vulnerable to well-funded competitors</li>
                           <li>• Limited geographic presence compared to global players</li>
@@ -1087,14 +1081,14 @@ What specific aspect would you like me to dive deeper into?`;
                     <h4 className="font-semibold text-navy mb-4">Market Risks</h4>
                     <div className="space-y-4">
                       <div className="p-4 bg-red-50 rounded-lg">
-                        <h5 className="font-semibold text-red-800 mb-2">Market Saturation</h5>
-                        <p className="text-red-600 text-sm mb-2">Risk: Increased competition from established players</p>
-                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> Focus on niche markets and superior customer experience</p>
+                        <h5 className="font-semibold text-red-800 mb-2">{deal.risk_factors.market_saturation.title}</h5>
+                        <p className="text-red-600 text-sm mb-2">Risk: {deal.risk_factors.market_saturation.risk}</p>
+                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> {deal.risk_factors.market_saturation.mitigation}</p>
                       </div>
                       <div className="p-4 bg-yellow-50 rounded-lg">
-                        <h5 className="font-semibold text-yellow-800 mb-2">Economic Downturn</h5>
-                        <p className="text-yellow-600 text-sm mb-2">Risk: Reduced customer spending during recession</p>
-                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> Diversified revenue streams and cost-efficient operations</p>
+                        <h5 className="font-semibold text-yellow-800 mb-2">{deal.risk_factors.economic_downturn.title}</h5>
+                        <p className="text-yellow-600 text-sm mb-2">Risk: {deal.risk_factors.economic_downturn.risk}</p>
+                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> {deal.risk_factors.economic_downturn.mitigation}</p>
                       </div>
                     </div>
                   </div>
@@ -1102,14 +1096,14 @@ What specific aspect would you like me to dive deeper into?`;
                     <h4 className="font-semibold text-navy mb-4">Operational Risks</h4>
                     <div className="space-y-4">
                       <div className="p-4 bg-orange-50 rounded-lg">
-                        <h5 className="font-semibold text-orange-800 mb-2">Key Person Dependency</h5>
-                        <p className="text-orange-600 text-sm mb-2">Risk: Heavy reliance on founder expertise</p>
-                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> Building strong management team and succession planning</p>
+                        <h5 className="font-semibold text-orange-800 mb-2">{deal.risk_factors.key_person_dependency.title}</h5>
+                        <p className="text-orange-600 text-sm mb-2">Risk: {deal.risk_factors.key_person_dependency.risk}</p>
+                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> {deal.risk_factors.key_person_dependency.mitigation}</p>
                       </div>
                       <div className="p-4 bg-blue-50 rounded-lg">
-                        <h5 className="font-semibold text-blue-800 mb-2">Technology Risks</h5>
-                        <p className="text-blue-600 text-sm mb-2">Risk: Rapid technological changes making product obsolete</p>
-                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> Continuous R&D investment and agile development practices</p>
+                        <h5 className="font-semibold text-blue-800 mb-2">{deal.risk_factors.technology_risks.title}</h5>
+                        <p className="text-blue-600 text-sm mb-2">Risk: {deal.risk_factors.technology_risks.risk}</p>
+                        <p className="text-gray-600 text-sm"><strong>Mitigation:</strong> {deal.risk_factors.technology_risks.mitigation}</p>
                       </div>
                     </div>
                   </div>
@@ -1123,7 +1117,7 @@ What specific aspect would you like me to dive deeper into?`;
                     </div>
                     <div className="p-4 bg-gray-50 rounded-lg text-center">
                       <h5 className="font-semibold text-navy mb-2">Customer Concentration</h5>
-                      <p className="text-sm text-gray-600">Top 5 customers represent 35% of revenue</p>
+                      <p className="text-sm text-gray-600">Top 5 customers represent {deal.metrics.top_customer_revenue_concentration} of revenue</p>
                     </div>
                     <div className="p-4 bg-gray-50 rounded-lg text-center">
                       <h5 className="font-semibold text-navy mb-2">Currency Risk</h5>
@@ -1198,7 +1192,7 @@ What specific aspect would you like me to dive deeper into?`;
                       </div>
                       <div className="flex justify-between py-2">
                         <span className="text-gray-600">Expected IRR</span>
-                        <span className="font-semibold text-gold">25-35%</span>
+                        <span className="font-semibold text-gold">{deal.metrics.expected_irr_range}</span>
                       </div>
                     </div>
                   </div>
@@ -1337,19 +1331,19 @@ What specific aspect would you like me to dive deeper into?`;
           {/* Main Dashboard Content */}
           <div className={`flex-1 flex flex-col transition-all duration-500 ${showAIPanel ? 'mr-96' : ''} min-w-0`}>
             {/* Dashboard Tabs */}
-            <div className="flex space-x-3 px-8 pt-6 border-b border-gray-200 bg-white overflow-x-auto">
+            <div className="flex space-x-3 px-8 pt-6 border-b border-gray-200 bg-white overflow-x-auto" style={{scrollbarWidth: 'none'}  }>
               {[
-                { id: 'overview', label: 'Overview' },
-                { id: 'market', label: 'Market & Problem' },
-                { id: 'product', label: 'Product / Service' },
-                { id: 'financials', label: 'Financials' },
-                { id: 'metrics', label: 'Business Model & Revenue' },
-                { id: 'team', label: 'Team' },
-                { id: 'competitor', label: 'Competitor Analysis' },
-                { id: 'devils-advocate', label: 'Devil\'s Advocate' },
-                { id: 'risks', label: 'Risks & Mitigation' },
-                { id: 'exit', label: 'Exit Opportunities' },
-                { id: 'documents', label: 'Legal & Compliance' }
+                { id: 'overview', label: dashboard.tabs.overview },
+                { id: 'market', label: dashboard.tabs.market },
+                { id: 'product', label: dashboard.tabs.product },
+                { id: 'financials', label: dashboard.tabs.financials },
+                { id: 'metrics', label: dashboard.tabs.metrics },
+                { id: 'team', label: dashboard.tabs.team },
+                { id: 'competitor', label: dashboard.tabs.competitor },
+                { id: 'devils-advocate', label: dashboard.tabs.devilsAdvocate },
+                { id: 'risks', label: dashboard.tabs.risks },
+                { id: 'exit', label: dashboard.tabs.exit },
+                { id: 'documents', label: dashboard.tabs.documents }
               ].map(tab => (
                 <button 
                   key={tab.id}

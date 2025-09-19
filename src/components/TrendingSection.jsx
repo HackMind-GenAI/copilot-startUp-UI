@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import DashboardOverlay from './DashboardOverlay';
+import { dealData } from '../data/dealData';
+import { appConfig } from '../data/appConfig';
 
 const TrendingSection = () => {
   const [selectedDeal, setSelectedDeal] = useState(null);
@@ -133,14 +135,16 @@ const TrendingSection = () => {
     setSelectedDeal(null);
   };
 
+  const { performanceLabels, marketInsights } = appConfig.trendingSection;
+
   return (
     <>
       <section className="py-20 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-navy mb-6">Market Momentum</h2>
+            <h2 className="text-5xl font-black text-navy mb-6">{appConfig.sections.trending.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real-time performance insights from our top-performing portfolio companies
+              {appConfig.sections.trending.subtitle}
             </p>
           </div>
           
@@ -168,45 +172,35 @@ const TrendingSection = () => {
                       </svg>
                       +{deal.growth.replace(' YoY', '').replace('%', '')}%
                     </div>
-                    <div className="text-sm text-gray-500">30 days</div>
+                    <div className="text-sm text-gray-500">{performanceLabels.thirtyDays}</div>
                   </div>
                 </div>
                 <p className="text-gray-600 mb-6 leading-relaxed">{deal.description}</p>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-3 bg-gray-50 rounded-lg">
                     <div className="text-lg font-bold text-navy">{deal.valuation}</div>
-                    <div className="text-xs text-gray-500">Valuation</div>
+                    <div className="text-xs text-gray-500">{performanceLabels.valuation}</div>
                   </div>
                   <div className="text-center p-3 bg-gray-50 rounded-lg">
                     <div className="text-lg font-bold text-navy">{deal.metrics.revenue}</div>
-                    <div className="text-xs text-gray-500">ARR</div>
+                    <div className="text-xs text-gray-500">{performanceLabels.arr}</div>
                   </div>
                 </div>
-                <div className="text-gold font-bold text-center">Real-time momentum building</div>
+                <div className="text-gold font-bold text-center">{performanceLabels.momentum}</div>
               </div>
             ))}
           </div>
           
           {/* Market insights */}
           <div className="glass-card p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold text-navy mb-6 text-center">Market Insights Dashboard</h3>
+            <h3 className="text-2xl font-bold text-navy mb-6 text-center">{marketInsights.title}</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center p-4 bg-green-50 rounded-lg">
-                <div className="text-3xl font-black text-green-600 mb-2">94%</div>
-                <div className="text-sm text-gray-600">Portfolio Companies Growing</div>
-              </div>
-              <div className="text-center p-4 bg-blue-50 rounded-lg">
-                <div className="text-3xl font-black text-blue-600 mb-2">$8.2B</div>
-                <div className="text-sm text-gray-600">Total Portfolio Value</div>
-              </div>
-              <div className="text-center p-4 bg-gold bg-opacity-20 rounded-lg">
-                <div className="text-3xl font-black text-navy mb-2">18.5%</div>
-                <div className="text-sm text-gray-600">Average IRR</div>
-              </div>
-              <div className="text-center p-4 bg-purple-50 rounded-lg">
-                <div className="text-3xl font-black text-purple-600 mb-2">12</div>
-                <div className="text-sm text-gray-600">Exits This Year</div>
-              </div>
+              {marketInsights.metrics.map((metric, index) => (
+                <div key={index} className={`text-center p-4 rounded-lg ${metric.colorClass}`}>
+                  <div className={`text-3xl font-black mb-2 ${metric.colorClass.split(' ')[0]}`}>{metric.value}</div>
+                  <div className="text-sm text-gray-600">{metric.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -215,7 +209,7 @@ const TrendingSection = () => {
       {/* Dashboard Overlay */}
       {showDashboard && selectedDeal && (
         <DashboardOverlay 
-          deal={selectedDeal} 
+          dealData={dealData}
           onClose={closeDashboard}
         />
       )}

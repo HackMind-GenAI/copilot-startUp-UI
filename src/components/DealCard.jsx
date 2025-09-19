@@ -1,4 +1,8 @@
+import { appConfig } from '../data/appConfig';
+
 const DealCard = ({ deal, onClick }) => {
+  const { labels, fallbackText } = appConfig.dealCard;
+
   return (
     <div 
       className="deal-card glass-card p-8 rounded-3xl card-hover cursor-pointer glow-border min-w-[350px] max-w-[400px]"
@@ -24,31 +28,31 @@ const DealCard = ({ deal, onClick }) => {
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="text-center p-3 bg-gray-50 rounded-lg">
           <div className="text-xl font-bold text-navy">{deal.valuation}</div>
-          <div className="text-xs text-gray-500">Valuation</div>
+          <div className="text-xs text-gray-500">{labels.valuation}</div>
         </div>
         <div className="text-center p-3 bg-gray-50 rounded-lg">
           <div className="text-xl font-bold text-gold">{deal.growth}</div>
-          <div className="text-xs text-gray-500">Growth Rate</div>
+          <div className="text-xs text-gray-500">{labels.growth}</div>
         </div>
       </div>
       
       <div className="space-y-3 mb-6">
         <div className="flex justify-between items-center text-sm">
-          <span className="text-gray-500">Revenue</span>
-          <span className="font-semibold text-navy">{deal.metrics?.revenue || 'N/A'}</span>
+          <span className="text-gray-500">{labels.revenue}</span>
+          <span className="font-semibold text-navy">{deal.metrics?.revenue || fallbackText}</span>
         </div>
         <div className="flex justify-between items-center text-sm">
-          <span className="text-gray-500">Customers</span>
-          <span className="font-semibold text-navy">{deal.metrics?.customers || 'N/A'}</span>
+          <span className="text-gray-500">{labels.customers}</span>
+          <span className="font-semibold text-navy">{deal.metrics?.customers || fallbackText}</span>
         </div>
         <div className="flex justify-between items-center text-sm">
-          <span className="text-gray-500">Team Size</span>
-          <span className="font-semibold text-navy">{deal.employees || 'N/A'}</span>
+          <span className="text-gray-500">{labels.teamSize}</span>
+          <span className="font-semibold text-navy">{deal.employees || fallbackText}</span>
         </div>
       </div>
       
       <button className="w-full bg-navy text-white py-4 rounded-2xl font-bold hover:bg-gold hover:text-navy transition-all duration-300 transform hover:scale-105">
-        View Investment Memo
+        {labels.ctaButton}
       </button>
     </div>
   );

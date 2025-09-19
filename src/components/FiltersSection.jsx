@@ -1,7 +1,11 @@
+import { appConfig } from '../data/appConfig';
+
 const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
   const handleSelectChange = (filterType) => (e) => {
     onFilterChange(filterType, e.target.value);
   };
+
+  const { categories, stages, regions, sortOptions, clearAllText } = appConfig.filters;
 
   return (
     <section className="py-16 px-8 bg-gray-50">
@@ -13,11 +17,9 @@ const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
               onChange={handleSelectChange('category')}
               className="glass-card px-6 py-3 rounded-full text-navy font-medium appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-gold w-full"
             >
-              <option value="all">All Categories</option>
-              <option value="fintech">Fintech</option>
-              <option value="ai">Artificial Intelligence</option>
-              <option value="pharma">Pharmaceuticals</option>
-              <option value="energy">Clean Energy</option>
+              {categories.map((category) => (
+                <option key={category.value} value={category.value}>{category.label}</option>
+              ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,11 +34,9 @@ const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
               onChange={handleSelectChange('stage')}
               className="glass-card px-6 py-3 rounded-full text-navy font-medium appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-gold w-full"
             >
-              <option value="all">All Stages</option>
-              <option value="seed">Seed</option>
-              <option value="series-a">Series A</option>
-              <option value="series-b">Series B</option>
-              <option value="growth">Growth</option>
+              {stages.map((stage) => (
+                <option key={stage.value} value={stage.value}>{stage.label}</option>
+              ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,10 +51,9 @@ const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
               onChange={handleSelectChange('region')}
               className="glass-card px-6 py-3 rounded-full text-navy font-medium appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-gold w-full"
             >
-              <option value="all">All Regions</option>
-              <option value="north-america">North America</option>
-              <option value="europe">Europe</option>
-              <option value="asia">Asia Pacific</option>
+              {regions.map((region) => (
+                <option key={region.value} value={region.value}>{region.label}</option>
+              ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,9 +68,9 @@ const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
               onChange={handleSelectChange('sort')}
               className="glass-card px-6 py-3 rounded-full text-navy font-medium appearance-none cursor-pointer pr-10 focus:outline-none focus:ring-2 focus:ring-gold w-full"
             >
-              <option value="newest">Newest First</option>
-              <option value="valuation">Highest Valuation</option>
-              <option value="growth">Fastest Growth</option>
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +83,7 @@ const FiltersSection = ({ filters, onFilterChange, onClearFilters }) => {
             onClick={onClearFilters}
             className="bg-gray-200 text-navy px-6 py-3 rounded-full font-medium hover:bg-navy hover:text-white transition-all duration-300"
           >
-            Clear All
+            {clearAllText}
           </button>
         </div>
       </div>

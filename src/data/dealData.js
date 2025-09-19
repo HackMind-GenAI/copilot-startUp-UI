@@ -31,7 +31,25 @@ export const dealData = {
     churnRate: "3.2%", // Monthly customer churn rate
     nps: 67, // Net Promoter Score
     mrr: "$1M", // Monthly Recurring Revenue
-    arr_growth: "145%" // Annual Recurring Revenue growth
+    arr_growth: "145%", // Annual Recurring Revenue growth
+    customer_satisfaction: "92%",
+      technology_score: "9.2/10",
+      competitor_avg_satisfaction: "87%",
+      competitor_avg_tech_score: "8.5/10",
+      implementation_speed_advantage: "30%",
+      industry_avg_gross_margin: "68%",
+      competitor_avg_churn: "8.2%",
+      customer_base_difference: "3x",
+      addressable_market_gap: "$2.8B",
+      underserved_market_share: "35%",
+      top_customer_revenue_concentration: "35%",
+      expected_irr_range: "25-35%",
+      established_players_market_share: "15%+",
+      scale_execution_target: "10x",
+      cost_leadership_advantage: "25%",
+      market_leader_share: "15.8%",
+    industry_gross_margin: "68%",
+    competitor_avg_churn: "8.2%"
   },
 
   // Financial time series data - Source: /api/companies/{companyId}/financials/time-series
@@ -107,7 +125,9 @@ export const dealData = {
       "Increased regulatory compliance requirements",
       "Growing need for real-time financial insights"
     ],
-    problem_statement: "Traditional financial analytics tools are fragmented, expensive, and difficult to integrate, leaving investment firms with inefficient decision-making processes and limited real-time insights."
+    problem_statement: "Traditional financial analytics tools are fragmented, expensive, and difficult to integrate, leaving investment firms with inefficient decision-making processes and limited real-time insights.",
+    addressable_gap: "$2.8B",
+    underserved_share: "35%"
   },
 
   // Product information - Source: /api/companies/{companyId}/product
@@ -130,50 +150,83 @@ export const dealData = {
     ],
     development_stage: "Production Ready",
     technology_stack: ["Python", "React", "PostgreSQL", "AWS", "TensorFlow", "Docker"],
-    integrations: ["Salesforce", "HubSpot", "PitchBook", "Crunchbase", "Bloomberg Terminal"]
+    integrations: ["Salesforce", "HubSpot", "PitchBook", "Crunchbase", "Bloomberg Terminal"],
+    implementation_advantage: "30%",
+    cost_advantage: "25%",
+    pricing_positioning: "25% below premium competitors"
   },
 
   // Competitor analysis - Source: /api/market/{sector}/competitors
   competitors: [
     {
-      id: "comp_001",
-      name: "PitchBook Analytics Pro",
+      id: 1,
+      name: "CompetitorX Pro",
       funding: "$45M",
       valuation: "$180M", 
-      customers: "2,500+",
-      growth: "+85%",
-      market_share: "8.3%",
-      founded: "2016",
-      strengths: ["Established brand", "Large dataset", "Enterprise partnerships"],
-      weaknesses: ["Complex UI", "High pricing", "Slow innovation cycle"]
+      customers: "1,200+",
+      growth: "180% YoY",
+      market_share: "15.8%"
     },
     {
-      id: "comp_002",
-      name: "Crunchbase Intelligence",
+      id: 2,
+      name: "MarketLeader Solutions",
       funding: "$120M",
       valuation: "$500M",
-      customers: "8,000+", 
-      growth: "+62%",
-      market_share: "15.8%",
-      founded: "2014",
-      strengths: ["Market leader", "Comprehensive data", "Global presence"],
-      weaknesses: ["Legacy technology", "Limited AI features", "High customer churn"]
+      customers: "3,500+", 
+      growth: "95% YoY",
+      market_share: "28.4%"
     },
     {
-      id: "comp_003",
-      name: "CB Insights Platform",
+      id: 3,
+      name: "InnovateFlow",
       funding: "$28M",
-      valuation: "$150M",
-      customers: "1,800+",
-      growth: "+95%",
-      market_share: "6.1%", 
-      founded: "2017",
-      strengths: ["Strong growth", "Modern UI", "Good customer satisfaction"],
-      weaknesses: ["Limited enterprise features", "Smaller team", "Geographic limitations"]
+      valuation: "$85M",
+      customers: "800+",
+      growth: "220% YoY", 
+      market_share: "8.9%"
     }
   ],
-
-  // Risk analysis - Source: /api/companies/{companyId}/risk-assessment  
+  competitive_analysis: {
+    advantages: [
+      "30% faster implementation than leading competitors",
+      "Superior 87% gross margin vs industry 68%", 
+      "Lower 2.3% churn vs competitor average 8.2%",
+      "More cost-effective pricing model"
+    ],
+    challenges: [
+      "Smaller customer base vs market leaders (3x difference)",
+      "Less funding raised compared to top competitors",
+      "Newer brand recognition in the market", 
+      "Limited enterprise-level partnerships"
+    ],
+    competitive_strategy: {
+      differentiation_focus: "Superior user experience and faster deployment",
+      cost_leadership: "25% more affordable than premium competitors", 
+      innovation_edge: "Next-gen AI features ahead of market"
+    }
+  },
+  risk_factors: {
+    market_saturation: {
+      title: "Market Saturation",
+      risk: "Increased competition from established players",
+      mitigation: "Focus on niche markets and superior customer experience"
+    },
+    economic_downturn: {
+      title: "Economic Downturn", 
+      risk: "Reduced customer spending during recession",
+      mitigation: "Diversified revenue streams and cost-efficient operations"
+    },
+    key_person_dependency: {
+      title: "Key Person Dependency",
+      risk: "Heavy reliance on founder expertise",
+      mitigation: "Building strong management team and succession planning"
+    },
+    technology_risks: {
+      title: "Technology Risks",
+      risk: "Rapid technological changes making product obsolete", 
+      mitigation: "Continuous R&D investment and agile development practices"
+    }
+  },  // Risk analysis - Source: /api/companies/{companyId}/risk-assessment  
   risks: {
     market_risks: [
       {

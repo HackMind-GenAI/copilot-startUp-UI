@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import DealCard from './DealCard';
 import DashboardOverlay from './DashboardOverlay';
+import { dealData } from '../data/dealData';
+import { appConfig } from '../data/appConfig';
 
 // Enhanced deals data matching the HTML version
 const allDeals = [
@@ -297,14 +299,16 @@ const DealsSection = ({ filters }) => {
     setSelectedDeal(null);
   };
 
+  const { deals } = appConfig.sections;
+
   return (
     <>
       <section id="deals" className="py-20 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-navy mb-6">Premium Investment Deals</h2>
+            <h2 className="text-5xl font-black text-navy mb-6">{deals.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Handpicked opportunities from our exclusive deal flow, vetted by our investment committee
+              {deals.subtitle}
             </p>
           </div>
           
@@ -361,6 +365,7 @@ const DealsSection = ({ filters }) => {
       {showDashboard && selectedDeal && (
         <DashboardOverlay 
           onClose={closeDashboard}
+          dealData={dealData}
         />
       )}
     </>
