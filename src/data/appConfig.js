@@ -30,6 +30,8 @@ export const appConfig = {
     categories: [
       { value: 'all', label: 'All Categories' },
       { value: 'fintech', label: 'Fintech' },
+      { value: 'enterprise-software', label: 'Enterprise Software' },
+      { value: 'healthcare', label: 'Healthcare' },
       { value: 'ai', label: 'Artificial Intelligence' },
       { value: 'pharma', label: 'Pharmaceuticals' },
       { value: 'energy', label: 'Clean Energy' },
@@ -39,6 +41,7 @@ export const appConfig = {
     ],
     stages: [
       { value: 'all', label: 'All Stages' },
+      { value: 'pre-seed', label: 'Pre-Seed' },
       { value: 'seed', label: 'Seed' },
       { value: 'series-a', label: 'Series A' },
       { value: 'series-b', label: 'Series B' },

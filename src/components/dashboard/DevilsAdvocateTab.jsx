@@ -19,7 +19,7 @@ const DevilsAdvocateTab = ({ deal }) => {
               </h4>
               <div className="space-y-4">
                 <div className="p-4 border-l-4 border-red-500 bg-red-50">
-                  <h5 className="font-semibold text-red-800 mb-2">Founder Claim: "{deal.growth} YoY Growth"</h5>
+                  <h5 className="font-semiband text-red-800 mb-2">Founder Claim: "{deal.basicInfo.growth} YoY Growth"</h5>
                   <p className="text-red-700 text-sm mb-2"><strong>Counter-Argument:</strong></p>
                   <ul className="text-red-600 text-sm space-y-1">
                     <li>• Growth from small base - only {deal.metrics.customers} customers</li>

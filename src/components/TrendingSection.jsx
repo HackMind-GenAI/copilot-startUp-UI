@@ -1,11 +1,6 @@
-import { useState } from 'react';
-import DashboardOverlay from './DashboardOverlay';
-import { dealData } from '../data/dealData';
 import { appConfig } from '../data/appConfig';
 
 const TrendingSection = () => {
-  const [selectedDeal, setSelectedDeal] = useState(null);
-  const [showDashboard, setShowDashboard] = useState(false);
 
   // Enhanced trending companies data that matches the deals structure
   const trendingDeals = [
@@ -125,15 +120,7 @@ const TrendingSection = () => {
     }
   ];
 
-  const handleTrendingClick = (deal) => {
-    setSelectedDeal(deal);
-    setShowDashboard(true);
-  };
 
-  const closeDashboard = () => {
-    setShowDashboard(false);
-    setSelectedDeal(null);
-  };
 
   const { performanceLabels, marketInsights } = appConfig.trendingSection;
 
@@ -152,8 +139,7 @@ const TrendingSection = () => {
             {trendingDeals.map((deal) => (
               <div 
                 key={deal.id}
-                className="performance-trend glass-card p-8 rounded-2xl glow-border cursor-pointer transform transition-all duration-300 hover:scale-105"
-                onClick={() => handleTrendingClick(deal)}
+                className="performance-trend glass-card p-8 rounded-2xl glow-border"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-3">
@@ -206,13 +192,7 @@ const TrendingSection = () => {
         </div>
       </section>
 
-      {/* Dashboard Overlay */}
-      {showDashboard && selectedDeal && (
-        <DashboardOverlay 
-          dealData={dealData}
-          onClose={closeDashboard}
-        />
-      )}
+
     </>
   );
 };

@@ -7,7 +7,7 @@ const CompetitorTab = ({ deal }) => {
           <div>
             <h4 className="font-semibold text-navy mb-4">Direct Competitors</h4>
             <div className="space-y-4">
-              {deal.competitors.map((competitor, index) => (
+              {deal.competitor.direct_competitors.map((competitor, index) => (
                 <div key={competitor.id} className="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
                   <h5 className="font-bold text-navy mb-2">{competitor.name}</h5>
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -26,7 +26,7 @@ const CompetitorTab = ({ deal }) => {
               <div className="p-4 bg-green-50 rounded-lg">
                 <h5 className="font-semibold text-green-800 mb-2">🟢 Advantages vs. Competitors</h5>
                 <ul className="text-sm text-green-700 space-y-1">
-                  {deal.competitive_analysis.advantages.map((advantage, index) => (
+                  {deal.competitor.analysis.advantages.map((advantage, index) => (
                     <li key={index}>• {advantage}</li>
                   ))}
                 </ul>
@@ -34,7 +34,7 @@ const CompetitorTab = ({ deal }) => {
               <div className="p-4 bg-red-50 rounded-lg">
                 <h5 className="font-semibold text-red-800 mb-2">🔴 Competitive Challenges</h5>
                 <ul className="text-sm text-red-700 space-y-1">
-                  {deal.competitive_analysis.challenges.map((challenge, index) => (
+                  {deal.competitor.analysis.challenges.map((challenge, index) => (
                     <li key={index}>• {challenge}</li>
                   ))}
                 </ul>
@@ -66,7 +66,7 @@ const CompetitorTab = ({ deal }) => {
                   <td className="p-3 text-green-600">{deal.metrics.technology_score}</td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Strong Buy</span></td>
                 </tr>
-                {deal.competitors.map((competitor, index) => (
+                {deal.competitor.direct_competitors.map((competitor, index) => (
                   <tr key={competitor.id} className="border-b border-gray-200">
                     <td className="p-3">{competitor.name}</td>
                     <td className="p-3 font-semibold text-blue-600">{competitor.market_share}</td>
@@ -95,15 +95,15 @@ const CompetitorTab = ({ deal }) => {
             <div className="space-y-3">
               <div className="p-3 bg-blue-50 rounded-lg">
                 <p className="text-blue-800 font-semibold text-sm">Differentiation Focus</p>
-                <p className="text-blue-600 text-xs">{deal.competitive_analysis.competitive_strategy.differentiation_focus}</p>
+                <p className="text-blue-600 text-xs">{deal.competitor.analysis.competitive_strategy.differentiation_focus}</p>
               </div>
               <div className="p-3 bg-green-50 rounded-lg">
                 <p className="text-green-800 font-semibold text-sm">Cost Leadership</p>
-                <p className="text-green-600 text-xs">{deal.competitive_analysis.competitive_strategy.cost_leadership}</p>
+                <p className="text-green-600 text-xs">{deal.competitor.analysis.competitive_strategy.cost_leadership}</p>
               </div>
               <div className="p-3 bg-purple-50 rounded-lg">
                 <p className="text-purple-800 font-semibold text-sm">Innovation Edge</p>
-                <p className="text-purple-600 text-xs">{deal.competitive_analysis.competitive_strategy.innovation_edge}</p>
+                <p className="text-purple-600 text-xs">{deal.competitor.analysis.competitive_strategy.innovation_edge}</p>
               </div>
             </div>
           </div>

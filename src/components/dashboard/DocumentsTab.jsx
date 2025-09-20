@@ -18,7 +18,7 @@ const DocumentsTab = ({ deal }) => {
                 </div>
                 <div className="flex justify-between py-2">
                   <span>Incorporation Date</span>
-                  <span className="font-semibold text-navy">{deal.founded}</span>
+                  <span className="font-semibold text-navy">{deal.basicInfo.founded}</span>
                 </div>
               </div>
             </div>

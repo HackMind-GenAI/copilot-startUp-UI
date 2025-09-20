@@ -15,9 +15,9 @@ import ExitTab from './dashboard/ExitTab';
 import DocumentsTab from './dashboard/DocumentsTab';
 import { createRevenueChart, createFinancialChart, createEquityChart } from './dashboard/chartUtils';
 
-const DashboardOverlay = ({ onClose, dealData }) => {
-  // Use dynamic data passed as props
-  const deal = dealData;
+const DashboardOverlay = ({ onClose, companyData }) => {
+  // Use dynamic company data passed as props
+  const deal = companyData;
   const { dashboard } = appConfig;
   const [activeTab, setActiveTab] = useState('overview');
   const [showAIPanel, setShowAIPanel] = useState(false);

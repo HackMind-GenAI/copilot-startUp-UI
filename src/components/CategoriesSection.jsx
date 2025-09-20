@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import DashboardOverlay from './DashboardOverlay';
-import { dealData } from '../data/dealData';
 import { appConfig } from '../data/appConfig';
 
 const CategoriesSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showDashboard, setShowDashboard] = useState(false);
+
 
   const categories = Object.values(appConfig.investmentCategories);
   const { portfolioLabels } = appConfig;
@@ -213,13 +210,7 @@ const CategoriesSection = () => {
         </div>
       </section>
 
-      {/* Dashboard Overlay */}
-      {showDashboard && selectedCategory && (
-        <DashboardOverlay 
-          dealData={dealData}
-          onClose={closeDashboard}
-        />
-      )}
+
     </>
   );
 };

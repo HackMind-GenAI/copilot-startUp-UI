@@ -24,7 +24,7 @@ const FinancialsTab = ({ deal, chartInstanceRef, createFinancialChart }) => {
           <div className="space-y-4">
             <div className="p-4 bg-green-50 rounded-lg">
               <h4 className="font-semibold text-green-800 mb-2">Revenue Growth</h4>
-              <p className="text-green-600 text-sm">{deal.growth} year-over-year growth demonstrates strong market traction and product-market fit</p>
+              <p className="text-green-600 text-sm">{deal.basicInfo.growth} year-over-year growth demonstrates strong market traction and product-market fit</p>
             </div>
             <div className="p-4 bg-blue-50 rounded-lg">
               <h4 className="font-semibold text-blue-800 mb-2">Cash Management</h4>
