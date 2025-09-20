@@ -312,7 +312,7 @@ What specific aspect would you like me to dive deeper into?`;
         );
 
       case 'devils-advocate':
-        return <DevilsAdvocateTab deal={deal} />;
+        return <DevilsAdvocateTab deal={deal} apiResponse={deal.devilsAdvocateAnalysis} />;
 
       case 'risks':
         return <RisksTab deal={deal} />;
