@@ -202,7 +202,8 @@ export const appConfig = {
       devilsAdvocate: "Devil's Advocate",
       risks: "Risk Assessment", 
       exit: "Exit Strategy",
-      documents: "Legal & Compliance"
+      documents: "Legal & Compliance",
+      founderProfile: "Founder Profile Analysis"
     },
     
     sections: {

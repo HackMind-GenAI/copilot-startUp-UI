@@ -10,15 +10,11 @@ const DealCard = ({ deal, onClick }) => {
     >
       <div className="flex justify-between items-start mb-6">
         <div className="flex items-center space-x-3">
-          <div className="text-4xl">{deal.logo}</div>
           <div>
             <div className="bg-gold bg-opacity-20 text-gold px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
-              {deal.sector}
+              {deal.sector?.split(',')?.[0] || ""}
             </div>
           </div>
-        </div>
-        <div className="bg-navy bg-opacity-10 text-navy px-3 py-1 rounded-full text-xs font-semibold">
-          {deal.stage.replace('-', ' ').toUpperCase()}
         </div>
       </div>
       

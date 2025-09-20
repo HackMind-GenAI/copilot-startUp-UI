@@ -1186,13 +1186,13 @@ export const companiesData = [
 ];
 
 // Helper function to get company by ID
-export const getCompanyById = (companyId) => {
-  return companiesData.find(company => company.basicInfo.id === companyId);
+export const getCompanyById = (companyData, companyId) => {
+  return companyData.find(company => company.basicInfo.id === companyId);
 };
 
 // Helper function to get all companies for listing
-export const getAllCompanies = () => {
-  return companiesData.map(company => ({
+export const getAllCompanies = (companyData) => {
+  return companyData.map(company => ({
     id: company.basicInfo.id,
     name: company.basicInfo.name,
     description: company.basicInfo.description,

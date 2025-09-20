@@ -1,5 +1,5 @@
 const DocumentsTab = ({ deal }) => {
-  const legalData = deal.legal_compliance;
+  const legalData = deal.legal;
   
   return (
     <div className="space-y-8">

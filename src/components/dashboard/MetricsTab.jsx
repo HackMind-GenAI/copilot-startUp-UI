@@ -8,14 +8,14 @@ const MetricsTab = ({ deal }) => {
             <div>
               <h4 className="font-semibold text-navy mb-3">Revenue Type</h4>
               <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="text-blue-800 font-semibold">{deal.business_model.revenue_type.type}</p>
-                <p className="text-blue-600 text-sm">{deal.business_model.revenue_type.description}</p>
+                <p className="text-blue-800 font-semibold">{deal.business_model?.revenue_type?.type}</p>
+                <p className="text-blue-600 text-sm">{deal.business_model?.revenue_type?.description}</p>
               </div>
             </div>
             <div>
               <h4 className="font-semibold text-navy mb-3">Monetization Strategy</h4>
               <ul className="space-y-2 text-gray-600">
-                {deal.business_model.monetization_strategy.map((strategy, index) => (
+                {deal.business_model?.monetization_strategy?.map((strategy, index) => (
                   <li key={index} className="flex items-center">
                     <span className="text-gold mr-2">•</span>
                     {strategy}
@@ -26,7 +26,7 @@ const MetricsTab = ({ deal }) => {
             <div>
               <h4 className="font-semibold text-navy mb-3">Pricing Strategy</h4>
               <div className="grid grid-cols-3 gap-3">
-                {deal.business_model.pricing_strategy.map((tier, index) => (
+                {deal.business_model?.pricing_strategy?.map((tier, index) => (
                   <div key={index} className={`text-center p-3 rounded-lg ${
                     index === 1 ? 'bg-gold bg-opacity-20' : 
                     index === 2 ? 'bg-navy bg-opacity-10' : 'bg-gray-50'
@@ -44,27 +44,27 @@ const MetricsTab = ({ deal }) => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600">Annual Recurring Revenue</span>
-                  <span className="font-bold text-gold text-lg">{deal.metrics.revenue}</span>
+                  <span className="font-bold text-gold text-lg">{deal.metrics?.revenue}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600">Monthly Recurring Revenue</span>
-                  <span className="font-bold text-navy">${Math.floor(parseInt(deal.metrics.revenue.replace(/[$M,]/g, '')) * 1000000 / 12).toLocaleString()}</span>
+                  <span className="font-bold text-navy">${deal.metrics?.revenue ? Math.floor(parseInt(deal.metrics.revenue.replace(/[$M,]/g, '')) * 1000000 / 12).toLocaleString() : 'N/A'}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600">Customer Acquisition Cost</span>
-                  <span className="font-bold text-navy">{deal.metrics.cac}</span>
+                  <span className="font-bold text-navy">{deal.metrics?.cac}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600">Customer Lifetime Value</span>
-                  <span className="font-bold text-navy">{deal.metrics.ltv}</span>
+                  <span className="font-bold text-navy">{deal.metrics?.ltv}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600">Gross Margin</span>
-                  <span className="font-bold text-green-600">{deal.metrics.grossMargin}</span>
+                  <span className="font-bold text-green-600">{deal.metrics?.grossMargin}</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="text-gray-600">Monthly Churn Rate</span>
-                  <span className="font-bold text-green-600">{deal.metrics.churnRate}</span>
+                  <span className="font-bold text-green-600">{deal.metrics?.churnRate}</span>
                 </div>
               </div>
             </div>

@@ -66,33 +66,40 @@ const DashboardOverlay = ({ onClose, companyData }) => {
   const sendAIMessage = () => {
     if (!aiInput.trim()) return;
 
-    setAiMessages(prev => [...prev, { type: 'user', text: aiInput }]);
-    setIsTyping(true);
-    
-    // Scroll to bottom after adding user message
-    setTimeout(() => {
-      if (chatContainerRef.current) {
-        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-      }
-    }, 100);
-    
-    setTimeout(() => {
-      const response = generateAIResponse(aiInput);
-      setAiMessages(prev => [...prev, { type: 'ai', text: response }]);
+    askAI(aiInput);
+
+    setAiInput('');
+  };
+
+  const askAI = (question) => {
+    const apiPayload = {
+      message: question,
+      query_type:"default",
+      startup_id:"startup-123",
+      history: aiMessages?.map(item => ({
+        text: item.text,
+        role: item.type === 'ai' ? 'assistant' : 'user'
+      })) || [],
+    }
+    fetch('http://localhost:8000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(apiPayload)
+    }).then(response => response.json())
+    .then(response => {
+      const reply = response.reply;
+      setAiMessages(prev => [...prev, { type: 'ai', text: reply }]);
       setIsTyping(false);
-      
-      // Scroll to bottom after adding AI response
       setTimeout(() => {
         if (chatContainerRef.current) {
           chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
       }, 100);
-    }, 1500);
+    }).catch(() => {
+      setAiMessages(prev => [...prev, { type: 'ai', text: "I'm sorry, something went wrong. Please try again." }]);
+      setIsTyping(false);
+    });
     
-    setAiInput('');
-  };
-
-  const askAI = (question) => {
     setAiMessages(prev => [...prev, { type: 'user', text: question }]);
     setIsTyping(true);
     
@@ -102,19 +109,6 @@ const DashboardOverlay = ({ onClose, companyData }) => {
         chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
       }
     }, 100);
-    
-    setTimeout(() => {
-      const response = generateAIResponse(question);
-      setAiMessages(prev => [...prev, { type: 'ai', text: response }]);
-      setIsTyping(false);
-      
-      // Scroll to bottom after adding AI response
-      setTimeout(() => {
-        if (chatContainerRef.current) {
-          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-        }
-      }, 100);
-    }, 1500);
   };
 
   const generateAIResponse = (question) => {
@@ -323,6 +317,8 @@ What specific aspect would you like me to dive deeper into?`;
       case 'documents':
         return <DocumentsTab deal={deal} />;
 
+      // case 'founderProfile':
+      //   return <FounderProfile deal={deal} />;
       default:
         return null;
     }
@@ -358,7 +354,7 @@ What specific aspect would you like me to dive deeper into?`;
 
         <div className="flex flex-1 overflow-hidden">
           {/* Main Dashboard Content */}
-          <div className={`flex-1 flex flex-col transition-all duration-500 ${showAIPanel ? 'mr-96' : ''} min-w-0`}>
+          <div className={`flex-1 flex flex-col transition-all duration-500 ${showAIPanel ? '' : ''} min-w-0`}>
             {/* Dashboard Tabs */}
             <div className="flex space-x-3 px-8 pt-6 border-b border-gray-200 bg-white overflow-x-auto" style={{scrollbarWidth: 'none'}  }>
               {[
@@ -372,7 +368,9 @@ What specific aspect would you like me to dive deeper into?`;
                 { id: 'devils-advocate', label: dashboard.tabs.devilsAdvocate },
                 { id: 'risks', label: dashboard.tabs.risks },
                 { id: 'exit', label: dashboard.tabs.exit },
-                { id: 'documents', label: dashboard.tabs.documents }
+                { id: 'documents', label: dashboard.tabs.documents },
+                { id: 'founderProfile', label: dashboard.tabs.founderProfile }
+                
               ].map(tab => (
                 <button 
                   key={tab.id}
@@ -395,7 +393,7 @@ What specific aspect would you like me to dive deeper into?`;
           </div>
 
           {/* AI Assistant Panel */}
-          <div className={`ai-panel bg-navy transition-all duration-500 flex-shrink-0 ${showAIPanel ? 'w-96 max-w-[33vw]' : 'w-0 overflow-hidden'}`}>
+          <div className={`ai-panel bg-navy transition-all duration-500 flex-shrink-0 absolute bottom-[20px] right-[20px] h-[80vh] ${showAIPanel ? 'w-96 max-w-[33vw]' : 'w-0 overflow-hidden'}`}>
             <div className="w-full h-full flex flex-col p-4 lg:p-6 bg-navy overflow-hidden">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-white flex items-center space-x-2">
@@ -413,10 +411,10 @@ What specific aspect would you like me to dive deeper into?`;
               <div ref={chatContainerRef} className="ai-chat flex-1 space-y-4 mb-6 pr-2 overflow-y-auto max-h-full">
                 {aiMessages.map((message, index) => (
                   <div key={index} className={`p-4 rounded-lg border ${message.type === 'ai' ? 'bg-white bg-opacity-10 border-gold border-opacity-30' : 'bg-gold bg-opacity-20 border-gold border-opacity-50'}`}>
-                    <div className={`text-sm mb-2 font-semibold ${message.type === 'ai' ? 'text-gold' : 'text-navy'}`}>
+                    <div className={`text-sm mb-2 font-semibold text-gold`}>
                       {message.type === 'ai' ? '🤖 AI Assistant' : '👤 You'}
                     </div>
-                    <div className={`text-sm leading-relaxed whitespace-pre-line ${message.type === 'ai' ? 'text-white' : 'text-navy'}`}>{message.text}</div>
+                    <div className={`text-sm leading-relaxed whitespace-pre-line text-white`}>{message.text}</div>
                   </div>
                 ))}
                 {isTyping && (
@@ -431,7 +429,7 @@ What specific aspect would you like me to dive deeper into?`;
                 )}
               </div>
               
-              <div className="space-y-3 mb-6">
+              {aiMessages?.length ===1 && <div className="space-y-3 mb-6">
                 {[
                   'What are the key growth drivers for this company?',
                   'How does this company compare to competitors?',
@@ -448,7 +446,7 @@ What specific aspect would you like me to dive deeper into?`;
                     <span className="flex-1">{question}</span>
                   </button>
                 ))}
-              </div>
+              </div>}
               
               <div className="flex space-x-2">
                 <input 

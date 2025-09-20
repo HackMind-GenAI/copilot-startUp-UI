@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import DealCard from './DealCard';
 import { getAllCompanies } from '../data/companiesData';
 import { appConfig } from '../data/appConfig';
+import { useMemo } from 'react';
 
-const DealsSection = ({ filters, onCompanySelect }) => {
+const DealsSection = ({ filters, onCompanySelect, allDealsRaw }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [filteredDeals, setFilteredDeals] = useState([]);
   
   // Get all companies data dynamically
-  const allDeals = getAllCompanies();
+  const allDeals = useMemo(() => getAllCompanies(allDealsRaw), [allDealsRaw]);
+
 
   useEffect(() => {
     let filtered = allDeals;
@@ -49,7 +51,9 @@ const DealsSection = ({ filters, onCompanySelect }) => {
       filtered = [...filtered];
     }
 
-    setFilteredDeals(filtered);
+    if (filteredDeals.length === 0) {
+      setFilteredDeals(filtered);
+    }
     setCurrentIndex(0);
   }, [filters, allDeals]);
 

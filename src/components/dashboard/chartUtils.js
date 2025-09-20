@@ -123,6 +123,18 @@ export const createEquityChart = (equityChartRef, chartInstanceRef, deal) => {
 
   if (!equityChartRef.current) return;
 
+  const colors = ["#0f172a", "#fbbf24", "#3b82f6", "#10b981", "#ef4444", "#8b5cf6", "#ec4899", "#14b8a6"];
+
+  // array to store random number, but not repeated
+  const randomIndex = [];
+  while (randomIndex.length < deal.equity.breakdown.length) {
+    const rand = Math.floor(Math.random() * colors.length);
+    if (!randomIndex.includes(rand)) {
+      randomIndex.push(rand);
+    }
+  }
+
+
   const ctx = equityChartRef.current.getContext('2d');
   chartInstanceRef.current = new Chart(ctx, {
     type: 'pie',
@@ -130,7 +142,7 @@ export const createEquityChart = (equityChartRef, chartInstanceRef, deal) => {
       labels: deal.equity.breakdown.map(item => item.category),
       datasets: [{
         data: deal.equity.breakdown.map(item => item.percentage),
-        backgroundColor: deal.equity.breakdown.map(item => item.color),
+        backgroundColor: deal.equity.breakdown.map((item, index) => colors[randomIndex[index]]),
         borderWidth: 2,
         borderColor: '#ffffff'
       }]
