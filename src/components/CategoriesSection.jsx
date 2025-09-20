@@ -1,48 +1,11 @@
 import { useState } from 'react';
-import DashboardOverlay from './DashboardOverlay';
+import { appConfig } from '../data/appConfig';
 
 const CategoriesSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showDashboard, setShowDashboard] = useState(false);
 
-  const categories = [
-    {
-      id: 'fintech',
-      icon: '💳',
-      title: 'Fintech',
-      description: 'Revolutionary financial services transforming payments, lending, and wealth management',
-      aum: '$2.4B+',
-      companies: '25+',
-      irr: '+18.5%'
-    },
-    {
-      id: 'ai',
-      icon: '🤖',
-      title: 'Artificial Intelligence',
-      description: 'Next-generation AI solutions powering automation and intelligent decision-making',
-      aum: '$1.8B+',
-      companies: '18+',
-      irr: '+22.3%'
-    },
-    {
-      id: 'pharma',
-      icon: '💊',
-      title: 'Pharmaceuticals',
-      description: 'Breakthrough medical innovations and biotechnology advancing human health',
-      aum: '$3.1B+',
-      companies: '32+',
-      irr: '+16.8%'
-    },
-    {
-      id: 'energy',
-      icon: '⚡',
-      title: 'Clean Energy',
-      description: 'Sustainable future technologies driving the global energy transition',
-      aum: '$1.5B+',
-      companies: '20+',
-      irr: '+19.2%'
-    }
-  ];
+
+  const categories = Object.values(appConfig.investmentCategories);
+  const { portfolioLabels } = appConfig;
 
   const openCategoryDetail = (categoryId) => {
     const categoryData = {
@@ -217,9 +180,9 @@ const CategoriesSection = () => {
       <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-navy mb-6">Investment Categories</h2>
+            <h2 className="text-5xl font-black text-navy mb-6">{appConfig.sections.categories.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Diversified portfolio across high-growth sectors driving the future economy
+              {appConfig.sections.categories.subtitle}
             </p>
           </div>
           
@@ -234,12 +197,12 @@ const CategoriesSection = () => {
                 <h3 className="text-2xl font-bold text-navy mb-4">{category.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{category.description}</p>
                 <div className="space-y-2 mb-6">
-                  <div className="text-gold font-bold text-xl">{category.aum} AUM</div>
-                  <div className="text-sm text-gray-500">{category.companies} Portfolio Companies</div>
-                  <div className="text-sm text-green-600 font-semibold">{category.irr} Avg IRR</div>
+                  <div className="text-gold font-bold text-xl">{category.aum} {portfolioLabels.aum}</div>
+                  <div className="text-sm text-gray-500">{category.companies} {portfolioLabels.companies}</div>
+                  <div className="text-sm text-green-600 font-semibold">{category.irr} {portfolioLabels.avgIrr}</div>
                 </div>
                 <button className="w-full bg-navy text-white py-3 rounded-full font-semibold hover:bg-gold hover:text-navy transition-all duration-300">
-                  Explore {category.title}
+                  {category.buttonText}
                 </button>
               </div>
             ))}
@@ -247,13 +210,7 @@ const CategoriesSection = () => {
         </div>
       </section>
 
-      {/* Dashboard Overlay */}
-      {showDashboard && selectedCategory && (
-        <DashboardOverlay 
-          deal={selectedCategory} 
-          onClose={closeDashboard}
-        />
-      )}
+
     </>
   );
 };

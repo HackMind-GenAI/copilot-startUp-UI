@@ -1,7 +1,11 @@
+import { appConfig } from '../data/appConfig';
+
 const HeroSection = () => {
   const scrollToDeals = () => {
     document.getElementById('deals')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const { hero } = appConfig.sections;
 
   return (
     <section className="min-h-screen flex items-center justify-center relative hero-gradient">
@@ -13,17 +17,17 @@ const HeroSection = () => {
       
       <div className="text-center z-10 px-8 max-w-6xl mx-auto">
         <h1 className="text-7xl md:text-9xl font-black text-navy mb-8 leading-none tracking-tight">
-          Investing.<br />
-          <span className="text-gold animate-glow">Refined.</span>
+          {hero.title}<br />
+          <span className="text-gold animate-glow">{hero.titleHighlight}</span>
         </h1>
         <p className="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-          Exclusive access to premium investment opportunities curated for sophisticated investors seeking exceptional returns in tomorrow's market leaders.
+          {hero.subtitle}
         </p>
         <button 
           onClick={scrollToDeals} 
           className="bg-navy text-white px-12 py-5 rounded-full text-xl font-semibold hover:bg-gold hover:text-navy transition-all duration-500 transform hover:scale-105 shadow-2xl glow-border"
         >
-          Explore Opportunities
+          {hero.ctaText}
         </button>
       </div>
     </section>
