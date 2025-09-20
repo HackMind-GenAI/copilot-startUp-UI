@@ -383,6 +383,19 @@ export const companiesData = [
       }
     },
 
+    founders: {
+      name: "Anya Sharma",
+      workedWithInPast: [
+        "Anya Sharma worked with David Chen as co-founders of ConnectSphere. Their relationship was marked by a fundamental disagreement on the company's core mission and vision. Anya aimed to build a tool to combat loneliness, while David was focused on the engineering challenge and hyper-growth metrics. This misalignment ultimately led to the failure of ConnectSphere. Anya learned a critical lesson about co-founder alignment, which she has applied to her subsequent ventures. The relationship ended due to irreconcilable differences, and future collaboration is highly unlikely.",
+        "Anya Sharma also has a supportive, peer-level relationship with Chloe Davis, where they share values of discipline and principled leadership. Anya provides empathetic and direct advice to Chloe, indicating a strong foundation for potential future collaboration or continued mentorship. Their relationship is supportive and based on mutual respect and shared values of discipline and principled leadership."
+      ],
+      risk: "Medium-Low. Anya presents a Medium-Low risk profile for investors aligned with her vision. Her primary historical risk was co-founder misalignment at ConnectSphere, which she has demonstrated exceptional learning and adaptation from. She proactively builds her current company, Insight AI, on a foundation of strong ethical principles, 'patience and rigor,' and clear mission alignment. She successfully raised a $20M Series A by turning down higher valuations to secure partners who understand her long-term vision. Her communication is direct and principled, fostering a mission-driven team.",
+      pastVentureResult: "Anya Sharma's past venture, ConnectSphere, failed due to fundamental co-founder misalignment. She described it as being 'fatally divided on our mission,' with her wanting to build a tool to combat loneliness while her co-founder, David Chen, was 'mesmerized by the engineering challenge and the potential for hyper-growth.' This resulted in a product where the core technology was sound, but the 'why' was broken. Anya openly acknowledges this failure and extracts a clear lesson: 'a founding team that is not aligned on the 'why' will inevitably break the 'what'.' This experience, while a failure for ConnectSphere, served as a crucial learning opportunity that profoundly shaped her approach to subsequent ventures, notably Insight AI.",
+      communicationStyle: "Anya Sharma's communication style is primarily Analytical, Direct, and Principled, often carrying an Inspirational tone regarding her mission. She is consistently clear, evidence-based, and driven by strong ethical considerations, avoiding hype. Her tone in written communications is formal yet passionate, clinical when discussing technical/ethical implications, but deeply emotional when discussing mission. She is reflective and instructional in post-mortems and firm and uncompromising when it comes to ethics, as seen in her rejection of a DoD contract.",
+      resilienceAndGrit: "Anya Sharma demonstrates high resilience and grit, characterized by her ability to learn from failures and steadfastly adhere to her principles. After ConnectSphere's failure, she directly acknowledged it, framed it as a critical learning experience about co-founder alignment, and quickly re-engaged with a new venture, Insight AI. Her decision to turn down higher valuations for Insight AI, prioritizing 'patience and rigor' and ethical alignment, showcases significant grit and conviction. She is willing to forgo immediate financial gain to uphold her values, as evidenced by declining a lucrative DoD contract.",
+      salesOrProductOriented: "Anya Sharma is Heavily Product-Oriented with a strong ethical and mission-driven focus. Her past and current ventures consistently prioritize the underlying product, its ethical implications, user experience (in terms of societal impact), and long-term value creation over aggressive sales or revenue maximization. At ConnectSphere, her vision to 'combat loneliness' clashed with her co-founder's focus on 'hyper-growth' and 'click-through-rate.' With Insight AI, she explicitly states, 'We're not a hype-cycle company,' and prioritizes 'patience and rigor' over 'extra zero on the valuation,' demonstrating a deep commitment to foundational product strength and ethical design."
+    },
+
     legal_compliance: {
       incorporation: {
         jurisdiction: "Delaware, USA",
@@ -782,6 +795,19 @@ export const companiesData = [
         recent_comparables: "Enterprise automation exits at 10-14x ARR"
       }
     },
+    founders: {
+      name: "Alex Thompson",
+      workedWithInPast: [
+        "Alex Thompson worked closely with Lisa Park during their time at Atlassian, where they collaborated on multiple enterprise software projects. Their working relationship was highly productive, with Alex leading the engineering teams while Lisa managed product strategy. They developed a strong mutual respect and understanding of each other's strengths, which led to their decision to co-found TechFlow Solutions. Their collaboration has been marked by clear communication, shared vision for workflow automation, and complementary skill sets.",
+        "Alex also maintained a professional relationship with former Slack executives during integration projects, building valuable connections in the enterprise software ecosystem. These relationships have proven beneficial for TechFlow's go-to-market strategy and partnership development."
+      ],
+      risk: "Low-Medium. Alex presents a Low-Medium risk profile with strong technical execution capabilities and proven experience scaling enterprise software teams. His background at Atlassian provides valuable insights into enterprise customer needs and product development cycles. The primary risk factors include potential market saturation in workflow automation and the challenge of competing against well-funded incumbents. However, his track record of successful team leadership and deep technical expertise in automation platforms mitigate many execution risks.",
+      pastVentureResult: "Alex Thompson's professional background includes successful leadership roles at Atlassian, where he directed engineering teams of 50+ developers and delivered multiple enterprise software products. While TechFlow Solutions is his first entrepreneurial venture, his extensive experience in enterprise software development and team management has prepared him well for startup leadership. His previous projects at Atlassian achieved significant user adoption and revenue growth, demonstrating his ability to build scalable software solutions.",
+      communicationStyle: "Alex Thompson's communication style is Technical, Collaborative, and Results-Oriented. He excels at translating complex technical concepts into business value propositions and is skilled at building consensus among diverse stakeholders. His approach is methodical and data-driven, often using metrics and user feedback to support his arguments. Alex is known for his ability to foster team collaboration and maintain clear, regular communication with both technical and non-technical team members. He prefers structured meetings and documentation but adapts his style based on the audience's technical background.",
+      resilienceAndGrit: "Alex Thompson demonstrates strong resilience and grit through his consistent track record of delivering complex enterprise software projects under tight deadlines and resource constraints. At Atlassian, he successfully navigated multiple product pivots and market changes while maintaining team morale and product quality. His approach to challenges is systematic and persistent, often working through problems methodically until finding viable solutions. Alex has shown the ability to learn from setbacks quickly and adapt strategies based on market feedback, which is essential for startup success.",
+      salesOrProductOriented: "Alex Thompson is Heavily Product-Oriented with strong technical depth and user experience focus. His background in enterprise software engineering has instilled a deep appreciation for building robust, scalable products that solve real customer problems. At TechFlow, he prioritizes product quality, user experience, and technical excellence over aggressive sales tactics. His approach involves understanding customer workflows deeply and building automation solutions that integrate seamlessly into existing business processes. While he recognizes the importance of sales and customer acquisition, his primary focus remains on creating products that customers love to use."
+    },
+
     legal_compliance: {
       incorporation: {
         jurisdiction: "Delaware, USA",
@@ -1181,6 +1207,52 @@ export const companiesData = [
         growth_premium: "+40-60%",
         recent_comparables: "Digital health exits at 20-30x ARR due to market premiums"
       }
+    },
+
+    founders: {
+      name: "Dr. Maria Gonzalez",
+      workedWithInPast: [
+        "Dr. Maria Gonzalez worked extensively with James Wilson during their collaboration on Epic Systems' patient portal development, where they built healthcare platforms serving over 50 million patients. Their professional relationship was marked by successful delivery of complex healthcare technology projects and shared commitment to improving patient outcomes through technology. Maria's clinical expertise combined with James's technical skills created a powerful partnership that they have successfully translated to HealthTech Innovations.",
+        "Dr. Gonzalez also maintained strong professional relationships with healthcare executives from her tenure as Chief Medical Officer at Teladoc, where she worked on strategic partnerships and regulatory compliance initiatives. These relationships have been instrumental in HealthTech's early customer acquisition and regulatory navigation."
+      ],
+      risk: "Medium. Dr. Gonzalez presents a Medium risk profile due to the complex regulatory environment in healthcare technology. Her extensive clinical background and previous executive experience at Teladoc provide strong credentials for healthcare innovation. However, the healthcare sector presents unique challenges including regulatory compliance, clinical validation requirements, and patient safety considerations. Her medical expertise and industry relationships help mitigate many operational risks, but market and regulatory risks remain significant factors requiring careful management.",
+      pastVentureResult: "Dr. Maria Gonzalez's professional track record includes successful leadership as Chief Medical Officer at Teladoc, one of the leading telemedicine platforms, where she oversaw clinical operations serving millions of patients and helped navigate complex regulatory requirements. Her experience includes launching multiple digital health initiatives, securing clinical partnerships, and ensuring regulatory compliance across different jurisdictions. While HealthTech Innovations represents her first entrepreneurial venture, her extensive healthcare leadership experience and clinical expertise provide a strong foundation for startup success.",
+      communicationStyle: "Dr. Gonzalez's communication style is Clinical, Evidence-Based, and Patient-Focused. She excels at presenting complex medical concepts in accessible terms while maintaining scientific rigor and accuracy. Her approach is methodical and data-driven, often supporting recommendations with clinical evidence and patient outcome data. She is skilled at building trust with both medical professionals and patients, using her clinical credibility to bridge the gap between technology and healthcare. Her communication is clear, empathetic, and focused on improving patient care through innovative solutions.",
+      resilienceAndGrit: "Dr. Gonzalez demonstrates exceptional resilience and grit through her track record of navigating the complex and highly regulated healthcare industry. Her experience at Teladoc required managing multiple regulatory challenges, clinical validation processes, and stakeholder relationships while maintaining focus on patient outcomes. She has consistently shown the ability to persevere through lengthy approval processes and regulatory hurdles that are common in healthcare technology. Her medical training and executive experience have instilled strong problem-solving skills and the persistence needed to overcome healthcare industry challenges.",
+      salesOrProductOriented: "Dr. Gonzalez is Strongly Product-Oriented with deep clinical validation focus. Her background as both a practicing physician and healthcare executive has instilled a commitment to building products that genuinely improve patient outcomes and clinical workflows. At HealthTech Innovations, she prioritizes clinical efficacy, patient safety, and evidence-based features over aggressive growth tactics. Her approach involves rigorous testing, clinical validation, and careful attention to regulatory requirements. While she understands the importance of business growth, her primary focus remains on creating clinically sound solutions that healthcare providers and patients can trust."
+    },
+
+    legal_compliance: {
+      incorporation: {
+        jurisdiction: "Delaware, USA", 
+        entity_type: "C-Corporation",
+        incorporation_date: "2021"
+      },
+      intellectual_property: {
+        patents_filed: "12 Patents Filed",
+        patent_description: "AI diagnostic algorithms and remote patient monitoring systems",
+        trademarks: "HealthTech brand and medical device trademarks secured in North America"
+      },
+      regulatory_compliance: [
+        "HIPAA Compliant (patient data protection)",
+        "FDA 510(k) clearance for remote monitoring devices",
+        "State medical licensing compliance",
+        "SOC 2 Type II Certified (healthcare security)",
+        "Clinical data governance frameworks"
+      ],
+      legal_structure: {
+        authorized_shares: "10,000,000",
+        outstanding_shares: "4,500,000", 
+        option_pool: "12%"
+      },
+      key_documents: [
+        { icon: "📄", title: "Delaware Certificate of Incorporation", status: "Current" },
+        { icon: "🏥", title: "FDA Device Registration and Listing", status: "Active" },
+        { icon: "⚖️", title: "Clinical Trial Agreements", status: "Executed" },
+        { icon: "🔒", title: "HIPAA Business Associate Agreements", status: "Complete" },
+        { icon: "📋", title: "Medical Advisory Board Agreements", status: "Active" },
+        { icon: "🏛️", title: "State Healthcare Licensing", status: "Current" }
+      ]
     }
   }
 ];
