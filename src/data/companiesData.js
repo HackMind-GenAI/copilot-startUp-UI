@@ -171,6 +171,155 @@ export const companiesData = [
         }
       }
     },
+    devilsAdvocateAnalysis: {
+      "restated_input": {
+        "founder_claim": "We want to build an AI-powered financial advisor app for Gen Z to manage investments.",
+        "ai_restated": "AI-powered financial advisor app for Gen Z that helps young people manage investments."
+      },
+      "counter_arguments": [
+        {
+          "point": "Gen Z users may lack trust in AI-driven financial advice.",
+          "probability_validity": "High"
+        },
+        {
+          "point": "Highly competitive landscape with established fintechs like Groww, Zerodha, Robinhood.",
+          "probability_validity": "High"
+        },
+        {
+          "point": "Regulatory constraints may prevent full automation.",
+          "probability_validity": "Critical"
+        },
+        {
+          "point": "High user acquisition costs may make profitability difficult.",
+          "probability_validity": "Medium"
+        }
+      ],
+      "risk_assessment": {
+        "regulatory": {
+          "description": "Strict SEBI/SEC compliance frameworks can delay go-to-market.",
+          "risk_score": 9,
+          "financial_impact": "Could increase operational costs by 20%",
+          "trend": "Increasing"
+        },
+        "privacy": {
+          "description": "Handling sensitive financial data poses cybersecurity risks.",
+          "risk_score": 7,
+          "financial_impact": "Data breaches could lead to fines and loss of trust",
+          "trend": "Stable"
+        },
+        "market": {
+          "description": "Gen Z may resist paying for subscriptions, limiting revenues.",
+          "risk_score": 7,
+          "financial_impact": "Revenue ceiling may cap at <40% of projections",
+          "trend": "Stable"
+        },
+        "execution": {
+          "description": "AI model reliability depends on large datasets and domain expertise.",
+          "risk_score": 6,
+          "financial_impact": "Could delay rollout by 12–18 months",
+          "trend": "Increasing"
+        },
+        "overall_risk_score": 8
+      },
+      "alternative_perspectives": [
+        {
+          "strategy": "B2B2C partnerships with banks, brokers, credit unions.",
+          "potential_upside": "Large"
+        },
+        {
+          "strategy": "Focus on gamified financial literacy before advisory.",
+          "potential_upside": "Medium"
+        },
+        {
+          "strategy": "Specialize in one asset class (mutual funds or crypto).",
+          "potential_upside": "Medium"
+        },
+        {
+          "strategy": "Niche markets like student loans or gig-worker savings.",
+          "potential_upside": "High"
+        }
+      ],
+      "data_consistency_check": {
+        "missing_fields": [
+          "Specific asset classes (stocks, mutual funds, crypto, ETFs).",
+          "Revenue model clarity.",
+          "Go-to-market strategy.",
+          "Compliance/licensing approach."
+        ],
+        "inconsistencies": [
+          "Assumes Gen Z adoption will be fast without trust-building.",
+          "Investments mentioned generically, no breakdown."
+        ],
+        "data_quality_score": 62
+      },
+      "data_mismatches": [
+        {
+          "claim": "Targeting Gen Z with subscription model",
+          "issue": "Gen Z unwilling to pay for advisory apps",
+          "severity": "High"
+        },
+        {
+          "claim": "Full automation of financial advisory",
+          "issue": "Regulations mandate licensed advisors",
+          "severity": "Critical"
+        },
+        {
+          "claim": "Rapid adoption expected from Gen Z",
+          "issue": "Low trust in AI for financial decisions",
+          "severity": "High"
+        }
+      ],
+      "evidence_strength": {
+        "supporting": [
+          { "point": "Gen Z adoption of gamified apps is rising.", "confidence": "High" },
+          { "point": "Mobile-first behavior aligns with financial app usage.", "confidence": "Medium" }
+        ],
+        "weak": [
+          { "point": "Conversion rates from free to paid remain low.", "confidence": "High" },
+          { "point": "Few case studies of Gen Z trusting AI in finance.", "confidence": "High" }
+        ],
+        "strength_score": 5,
+        "distribution": { "supporting": 45, "weak": 55 }
+      },
+      "improvements": [
+        {
+          "action": "Add compliance-first design: KYC + SEBI/SEC integration.",
+          "effort": "High",
+          "impact": "High"
+        },
+        {
+          "action": "Define monetization model (freemium/affiliate).",
+          "effort": "Medium",
+          "impact": "High"
+        },
+        {
+          "action": "Build trust with gamification and transparent advisory.",
+          "effort": "Low",
+          "impact": "High"
+        },
+        {
+          "action": "Partner with influencers and universities for adoption.",
+          "effort": "Medium",
+          "impact": "Medium"
+        }
+      ],
+      "overall_suggestion": {
+        "summary": "Promising idea with traction potential, but not investment-ready. Needs compliance-first design, clearer monetization, and trust-building mechanisms before scaling.",
+        "confidence_score": 7,
+        "investor_lens": "Proceed Cautiously",
+        "red_flag_alerts": [
+          "🚨 Regulatory compliance gap",
+          "🚨 Monetization unclear"
+        ]
+      },
+      "investor_questions": [
+        "How do you plan to navigate SEBI/SEC regulations for automated advisory?",
+        "What monetization model do you intend to pursue and why will Gen Z pay?",
+        "Which asset class will you focus on first?",
+        "How will you build trust with Gen Z to convert free users into paid customers?"
+      ],
+      "loop_hole_severity_index": 0.65
+    },
     risk_factors: {
       market_saturation: {
         title: "Market Saturation",
@@ -349,6 +498,155 @@ export const companiesData = [
         }
       }
     },
+    devilsAdvocateAnalysis: {
+      "restated_input": {
+        "founder_claim": "We're building a cloud-native workflow automation platform for enterprises to streamline business processes.",
+        "ai_restated": "Enterprise workflow automation platform that helps mid-market companies automate manual processes through intelligent cloud-native solutions."
+      },
+      "counter_arguments": [
+        {
+          "point": "Market dominated by Microsoft Power Automate, Zapier, and enterprise giants with deeper pockets.",
+          "probability_validity": "Critical"
+        },
+        {
+          "point": "Mid-market companies often lack technical expertise to implement complex automation.",
+          "probability_validity": "High"
+        },
+        {
+          "point": "ROI on automation unclear for smaller companies with limited processes.",
+          "probability_validity": "High"
+        },
+        {
+          "point": "Economic downturn could force companies to cut automation budgets first.",
+          "probability_validity": "Medium"
+        }
+      ],
+      "risk_assessment": {
+        "regulatory": {
+          "description": "Data privacy and security compliance across multiple industries and regions.",
+          "risk_score": 6,
+          "financial_impact": "Could increase compliance costs by 15%",
+          "trend": "Stable"
+        },
+        "privacy": {
+          "description": "Handling sensitive business process data across multiple client systems.",
+          "risk_score": 7,
+          "financial_impact": "Security breaches could destroy enterprise trust",
+          "trend": "Increasing"
+        },
+        "market": {
+          "description": "Fierce competition from tech giants with unlimited resources and existing market share.",
+          "risk_score": 9,
+          "financial_impact": "Could limit market penetration to <10% of projections",
+          "trend": "Increasing"
+        },
+        "execution": {
+          "description": "Complex integrations with legacy enterprise systems require significant technical expertise.",
+          "risk_score": 8,
+          "financial_impact": "Could delay customer onboarding by 6-12 months",
+          "trend": "Stable"
+        },
+        "overall_risk_score": 8
+      },
+      "alternative_perspectives": [
+        {
+          "strategy": "Focus on specific industry verticals (healthcare, finance, manufacturing).",
+          "potential_upside": "High"
+        },
+        {
+          "strategy": "Partner with system integrators and consultancies for implementation.",
+          "potential_upside": "Large"
+        },
+        {
+          "strategy": "Target SMBs with pre-built automation templates instead of enterprise.",
+          "potential_upside": "Medium"
+        },
+        {
+          "strategy": "White-label solution for existing enterprise software vendors.",
+          "potential_upside": "Large"
+        }
+      ],
+      "data_consistency_check": {
+        "missing_fields": [
+          "Specific industry focus and use cases.",
+          "Integration complexity and timeline details.",
+          "Competitive differentiation beyond 'faster implementation'.",
+          "Customer acquisition strategy for enterprise sales."
+        ],
+        "inconsistencies": [
+          "Claims 40% faster implementation but lacks technical depth evidence.",
+          "Mid-market focus conflicts with enterprise-level complexity needs."
+        ],
+        "data_quality_score": 68
+      },
+      "data_mismatches": [
+        {
+          "claim": "No-code interface for non-technical users",
+          "issue": "Enterprise automation requires technical expertise regardless",
+          "severity": "High"
+        },
+        {
+          "claim": "25% lower total cost of ownership",
+          "issue": "Implementation and training costs not factored in",
+          "severity": "Medium"
+        },
+        {
+          "claim": "Targeting mid-market with 50-500 employees",
+          "issue": "This segment has limited automation budgets and needs",
+          "severity": "High"
+        }
+      ],
+      "evidence_strength": {
+        "supporting": [
+          { "point": "Remote work is driving automation adoption across enterprises.", "confidence": "High" },
+          { "point": "No-code/low-code market is growing rapidly (>20% CAGR).", "confidence": "High" }
+        ],
+        "weak": [
+          { "point": "Limited evidence of mid-market willingness to pay for automation.", "confidence": "Medium" },
+          { "point": "Unclear how to compete against Microsoft's integrated ecosystem.", "confidence": "High" }
+        ],
+        "strength_score": 6,
+        "distribution": { "supporting": 55, "weak": 45 }
+      },
+      "improvements": [
+        {
+          "action": "Define specific industry verticals and create specialized solutions.",
+          "effort": "High",
+          "impact": "High"
+        },
+        {
+          "action": "Build strategic partnerships with system integrators and consultants.",
+          "effort": "Medium",
+          "impact": "High"
+        },
+        {
+          "action": "Develop comprehensive ROI calculator and case studies.",
+          "effort": "Low",
+          "impact": "High"
+        },
+        {
+          "action": "Create enterprise-grade security and compliance certifications.",
+          "effort": "High",
+          "impact": "Medium"
+        }
+      ],
+      "overall_suggestion": {
+        "summary": "Solid technical foundation but needs clearer market positioning and competitive differentiation. High execution risk in crowded market dominated by tech giants.",
+        "confidence_score": 6,
+        "investor_lens": "Proceed Cautiously",
+        "red_flag_alerts": [
+          "🚨 Intense competition from tech giants",
+          "⚠️ Unclear competitive moat"
+        ]
+      },
+      "investor_questions": [
+        "How will you compete against Microsoft Power Automate's integrated ecosystem?",
+        "What specific industry verticals will you focus on and why?",
+        "Can you demonstrate clear ROI for mid-market automation investments?",
+        "What's your strategy for handling complex enterprise integrations?"
+      ],
+      "loop_hole_severity_index": 0.72
+    },
     risk_factors: {
       market_saturation: {
         title: "Market Competition",
@@ -526,6 +824,156 @@ export const companiesData = [
           innovation_edge: "Advanced remote monitoring and predictive analytics"
         }
       }
+    },
+    devilsAdvocateAnalysis: {
+      "restated_input": {
+        "founder_claim": "We're revolutionizing healthcare with AI-powered telemedicine for chronic disease management and remote patient monitoring.",
+        "ai_restated": "AI-powered telemedicine platform focused on chronic disease management with remote patient monitoring capabilities."
+      },
+      "counter_arguments": [
+        {
+          "point": "Healthcare market dominated by established players like Teladoc, Amwell with massive user bases.",
+          "probability_validity": "Critical"
+        },
+        {
+          "point": "AI diagnostic accuracy liability could expose company to massive lawsuits.",
+          "probability_validity": "Critical"
+        },
+        {
+          "point": "Regulatory approval processes (FDA, HIPAA) extremely slow and expensive.",
+          "probability_validity": "High"
+        },
+        {
+          "point": "Chronic disease patients prefer in-person care and resist digital solutions.",
+          "probability_validity": "Medium"
+        }
+      ],
+      "risk_assessment": {
+        "regulatory": {
+          "description": "FDA approval for AI diagnostics and HIPAA compliance create significant barriers and costs.",
+          "risk_score": 9,
+          "financial_impact": "Could increase regulatory costs by 40% and delay launch by 2+ years",
+          "trend": "Increasing"
+        },
+        "privacy": {
+          "description": "Handling sensitive patient health data with AI systems creates massive liability exposure.",
+          "risk_score": 9,
+          "financial_impact": "Data breaches could result in $millions in fines and litigation",
+          "trend": "Increasing"
+        },
+        "market": {
+          "description": "Saturated telehealth market with well-funded incumbents and patient acquisition challenges.",
+          "risk_score": 8,
+          "financial_impact": "Customer acquisition costs could be 3x higher than projected",
+          "trend": "Stable"
+        },
+        "execution": {
+          "description": "AI diagnostic accuracy and patient safety require extensive clinical validation and oversight.",
+          "risk_score": 8,
+          "financial_impact": "Clinical trials and validation could cost $5-10M+ and take 3-5 years",
+          "trend": "Stable"
+        },
+        "overall_risk_score": 9
+      },
+      "alternative_perspectives": [
+        {
+          "strategy": "B2B2C partnerships with health insurers and healthcare systems.",
+          "potential_upside": "Large"
+        },
+        {
+          "strategy": "Focus on health monitoring and wellness, not diagnostic AI.",
+          "potential_upside": "Medium"
+        },
+        {
+          "strategy": "Target specific chronic conditions (diabetes, hypertension) with proven ROI.",
+          "potential_upside": "High"
+        },
+        {
+          "strategy": "White-label platform for existing healthcare providers.",
+          "potential_upside": "Large"
+        }
+      ],
+      "data_consistency_check": {
+        "missing_fields": [
+          "Specific chronic conditions targeted and clinical evidence.",
+          "FDA approval pathway and timeline.",
+          "Clinical validation studies and results.",
+          "Insurance reimbursement strategy and partnerships."
+        ],
+        "inconsistencies": [
+          "Claims 60% more accurate AI diagnostics without clinical trial data.",
+          "Low customer acquisition cost conflicts with healthcare sales complexity."
+        ],
+        "data_quality_score": 58
+      },
+      "data_mismatches": [
+        {
+          "claim": "60% more accurate AI diagnostics than competitors",
+          "issue": "No clinical trial evidence or FDA validation provided",
+          "severity": "Critical"
+        },
+        {
+          "claim": "50% lower cost per patient interaction",
+          "issue": "Doesn't account for clinical oversight and liability costs",
+          "severity": "High"
+        },
+        {
+          "claim": "$45 customer acquisition cost",
+          "issue": "Healthcare B2C acquisition typically costs $200-500+",
+          "severity": "Critical"
+        }
+      ],
+      "evidence_strength": {
+        "supporting": [
+          { "point": "Aging population driving demand for remote healthcare solutions.", "confidence": "High" },
+          { "point": "Post-COVID acceleration of telemedicine adoption by patients and providers.", "confidence": "High" }
+        ],
+        "weak": [
+          { "point": "No evidence of AI diagnostic accuracy claims or clinical validation.", "confidence": "Critical" },
+          { "point": "Unclear how to compete with established telehealth platforms on patient acquisition.", "confidence": "High" }
+        ],
+        "strength_score": 4,
+        "distribution": { "supporting": 35, "weak": 65 }
+      },
+      "improvements": [
+        {
+          "action": "Conduct clinical trials and pursue FDA clearance for AI diagnostic features.",
+          "effort": "High",
+          "impact": "Critical"
+        },
+        {
+          "action": "Establish partnerships with health insurers for reimbursement coverage.",
+          "effort": "High",
+          "impact": "High"
+        },
+        {
+          "action": "Focus on remote monitoring without diagnostic claims initially.",
+          "effort": "Medium",
+          "impact": "High"
+        },
+        {
+          "action": "Build clinical advisory board with key opinion leaders.",
+          "effort": "Medium",
+          "impact": "High"
+        }
+      ],
+      "overall_suggestion": {
+        "summary": "High-potential healthcare opportunity but extremely high regulatory and liability risks. Needs clinical validation and clear regulatory pathway before investment consideration.",
+        "confidence_score": 4,
+        "investor_lens": "High Risk - Proceed with Extreme Caution",
+        "red_flag_alerts": [
+          "🚨 No FDA validation for AI diagnostics claims",
+          "🚨 Massive liability exposure",
+          "⚠️ Unrealistic customer acquisition projections"
+        ]
+      },
+      "investor_questions": [
+        "What clinical trials have you conducted to validate AI diagnostic accuracy?",
+        "What's your FDA approval pathway and timeline for AI diagnostic features?",
+        "How will you handle liability and malpractice insurance for AI diagnostics?",
+        "What insurance reimbursement partnerships do you have in place?"
+      ],
+      "loop_hole_severity_index": 0.85
     },
     risk_factors: {
       market_saturation: {
