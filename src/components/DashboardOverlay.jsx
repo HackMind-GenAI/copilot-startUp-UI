@@ -9,6 +9,7 @@ import FinancialsTab from './dashboard/FinancialsTab';
 import MetricsTab from './dashboard/MetricsTab';
 import CompetitorTab from './dashboard/CompetitorTab';
 import TeamTab from './dashboard/TeamTab';
+import FoundersTab from './dashboard/FoundersTab';
 import DevilsAdvocateTab from './dashboard/DevilsAdvocateTab';
 import RisksTab from './dashboard/RisksTab';
 import ExitTab from './dashboard/ExitTab';
@@ -311,6 +312,9 @@ What specific aspect would you like me to dive deeper into?`;
           />
         );
 
+      case 'founders':
+        return <FoundersTab founderData={deal.founders} />;
+
       case 'devils-advocate':
         return <DevilsAdvocateTab deal={deal} apiResponse={deal.devilsAdvocateAnalysis} />;
 
@@ -368,6 +372,7 @@ What specific aspect would you like me to dive deeper into?`;
                 { id: 'financials', label: dashboard.tabs.financials },
                 { id: 'metrics', label: dashboard.tabs.metrics },
                 { id: 'team', label: dashboard.tabs.team },
+                { id: 'founders', label: 'Founders' },
                 { id: 'competitor', label: dashboard.tabs.competitor },
                 { id: 'devils-advocate', label: dashboard.tabs.devilsAdvocate },
                 { id: 'risks', label: dashboard.tabs.risks },
