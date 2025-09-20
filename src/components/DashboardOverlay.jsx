@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Chart from 'chart.js/auto';
 
 import { appConfig } from '../data/appConfig';
@@ -22,6 +22,7 @@ const DashboardOverlay = ({ onClose, companyData }) => {
   const { dashboard } = appConfig;
   const [activeTab, setActiveTab] = useState('overview');
   const [showAIPanel, setShowAIPanel] = useState(false);
+  const [foundersFullData, setFoundersFullData] = useState({});
   const [aiMessages, setAiMessages] = useState([
     {
       type: 'ai',
@@ -71,6 +72,30 @@ const DashboardOverlay = ({ onClose, companyData }) => {
 
     setAiInput('');
   };
+
+  const firstFounder = useMemo(
+    () => deal?.team?.find(f => f.role.toLowerCase().includes('founder'))
+    , [deal?.basicInfo.id]);
+
+  useEffect(() => {
+    // get first team member whose role includes 'founder'
+    if (firstFounder?.name?.length > 0) {
+      fetch('http://localhost:8000/founder-summary',{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ founder: firstFounder.name })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Data is ", data);
+        setFoundersFullData(prevData => ({
+          ...prevData,
+          [data?.name]: data
+        }));
+      })
+      .catch({})
+    }
+  }, [firstFounder]);
 
   const askAI = (question) => {
     const apiPayload = {
@@ -307,7 +332,7 @@ What specific aspect would you like me to dive deeper into?`;
         );
 
       case 'founders':
-        return <FoundersTab founderData={deal.founders} />;
+        return <FoundersTab founderData={foundersFullData?.[firstFounder?.name] || {}} />;
 
       case 'devils-advocate':
         return <DevilsAdvocateTab deal={deal} apiResponse={deal.devilsAdvocateAnalysis} />;
@@ -321,8 +346,6 @@ What specific aspect would you like me to dive deeper into?`;
       case 'documents':
         return <DocumentsTab deal={deal} />;
 
-      // case 'founderProfile':
-      //   return <FounderProfile deal={deal} />;
       default:
         return null;
     }

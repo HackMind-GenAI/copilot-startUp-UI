@@ -17,7 +17,7 @@ const FoundersTab = ({ founderData }) => {
 
   // Get risk badge color
   const getRiskBadgeColor = (riskText) => {
-    const lowerRisk = riskText.toLowerCase();
+    const lowerRisk = riskText?.toLowerCase();
     if (lowerRisk.includes('low') || lowerRisk.includes('medium-low')) {
       return 'bg-green-100 text-green-800 border-green-200';
     } else if (lowerRisk.includes('medium')) {
@@ -32,17 +32,17 @@ const FoundersTab = ({ founderData }) => {
   const generateFounderInsights = () => {
     if (!founderData) return '';
     
-    const riskLevel = founderData.risk.toLowerCase().includes('medium-low') ? 'medium-low risk' :
-                     founderData.risk.toLowerCase().includes('low') ? 'low risk' :
-                     founderData.risk.toLowerCase().includes('medium') ? 'medium risk' : 'high risk';
-    
-    const resilience = founderData.resilienceAndGrit.toLowerCase().includes('high') ? 'high resilience' : 
-                      founderData.resilienceAndGrit.toLowerCase().includes('medium') ? 'medium resilience' : 'resilience traits';
-    
-    const orientation = founderData.salesOrProductOriented.toLowerCase().includes('product') ? 'strong product-orientation' :
-                       founderData.salesOrProductOriented.toLowerCase().includes('sales') ? 'sales-focused approach' : 'balanced orientation';
-    
-    return `${founderData.name} shows ${orientation}, ${riskLevel}, and ${resilience}.`;
+    const riskLevel = founderData?.risk?.toLowerCase()?.includes('medium-low') ? 'medium-low risk' :
+                     founderData?.risk?.toLowerCase()?.includes('low') ? 'low risk' :
+                     founderData?.risk?.toLowerCase()?.includes('medium') ? 'medium risk' : 'high risk';
+
+    const resilience = founderData?.resilienceAndGrit?.toLowerCase()?.includes('high') ? 'high resilience' :
+                      founderData?.resilienceAndGrit?.toLowerCase()?.includes('medium') ? 'medium resilience' : 'resilience traits';
+
+    const orientation = founderData?.salesOrProductOriented?.toLowerCase()?.includes('product') ? 'strong product-orientation' :
+                       founderData?.salesOrProductOriented?.toLowerCase()?.includes('sales') ? 'sales-focused approach' : 'balanced orientation';
+
+    return `${founderData?.name} shows ${orientation}, ${riskLevel}, and ${resilience}.`;
   };
 
   // Filter content based on search
@@ -52,16 +52,16 @@ const FoundersTab = ({ founderData }) => {
   };
 
   // Parse collaboration history
-  const parseCollaborationHistory = (workedWithArray) => {
-    return workedWithArray.map((collaboration, index) => {
-      const text = collaboration.toLowerCase();
+  const parseCollaborationHistory = (workedWithArray = []) => {
+    return workedWithArray?.map((collaboration, index) => {
+      const text = collaboration?.toLowerCase();
       let type = 'neutral';
       let icon = '🤝';
       
-      if (text.includes('conflict') || text.includes('disagreement') || text.includes('failure') || text.includes('irreconcilable')) {
+      if (text?.includes('conflict') || text?.includes('disagreement') || text?.includes('failure') || text?.includes('irreconcilable')) {
         type = 'conflict';
         icon = '⚠️';
-      } else if (text.includes('support') || text.includes('mentor') || text.includes('collaboration') || text.includes('successful')) {
+      } else if (text?.includes('support') || text?.includes('mentor') || text?.includes('collaboration') || text?.includes('successful')) {
         type = 'support';
         icon = '✅';
       }
@@ -75,17 +75,17 @@ const FoundersTab = ({ founderData }) => {
     if (format === 'json') {
       const dataStr = JSON.stringify(founderData, null, 2);
       const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-      const exportFileDefaultName = `founder-data-${founderData.name.replace(/\s+/g, '-').toLowerCase()}.json`;
+      const exportFileDefaultName = `founder-data-${founderData?.name?.replace(/\s+/g, '-')?.toLowerCase()}.json`;
       const linkElement = document.createElement('a');
       linkElement.setAttribute('href', dataUri);
       linkElement.setAttribute('download', exportFileDefaultName);
       linkElement.click();
     } else if (format === 'pdf') {
       // Simple text format for PDF simulation
-      const content = `FOUNDER ANALYSIS REPORT\n\nName: ${founderData.name}\n\nRisk Assessment: ${founderData.risk}\n\nPast Venture Results: ${founderData.pastVentureResult}\n\nCommunication Style: ${founderData.communicationStyle}\n\nResilience & Grit: ${founderData.resilienceAndGrit}\n\nSales/Product Orientation: ${founderData.salesOrProductOriented}\n\nCollaboration History:\n${founderData.workedWithInPast.join('\n\n')}`;
+      const content = `FOUNDER ANALYSIS REPORT\n\nName: ${founderData?.name}\n\nRisk Assessment: ${founderData?.risk}\n\nPast Venture Results: ${founderData?.pastVentureResult}\n\nCommunication Style: ${founderData?.communicationStyle}\n\nResilience & Grit: ${founderData?.resilienceAndGrit}\n\nSales/Product Orientation: ${founderData?.salesOrProductOriented}\n\nCollaboration History:\n${founderData?.workedWithInPast?.join('\n\n')}`;
       
       const dataUri = 'data:text/plain;charset=utf-8,'+ encodeURIComponent(content);
-      const exportFileDefaultName = `founder-report-${founderData.name.replace(/\s+/g, '-').toLowerCase()}.txt`;
+      const exportFileDefaultName = `founder-report-${founderData?.name?.replace(/\s+/g, '-')?.toLowerCase()}.txt`;
       const linkElement = document.createElement('a');
       linkElement.setAttribute('href', dataUri);
       linkElement.setAttribute('download', exportFileDefaultName);
@@ -93,7 +93,7 @@ const FoundersTab = ({ founderData }) => {
     }
   };
 
-  if (!founderData) {
+  if (!founderData.name) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
@@ -104,43 +104,43 @@ const FoundersTab = ({ founderData }) => {
     );
   }
 
-  const collaborationHistory = parseCollaborationHistory(founderData.workedWithInPast);
+  const collaborationHistory = parseCollaborationHistory(founderData?.workedWithInPast);
   
   const cards = [
     {
       id: 'overview',
       title: 'Founder Overview',
-      content: founderData.name,
+      content: founderData?.name,
       type: 'overview'
     },
     {
       id: 'risk',
       title: 'Risk Assessment', 
-      content: founderData.risk,
+      content: founderData?.risk,
       type: 'risk'
     },
     {
       id: 'pastVenture',
       title: 'Past Venture Results',
-      content: founderData.pastVentureResult,
+      content: founderData?.pastVentureResult,
       type: 'text'
     },
     {
       id: 'communication',
       title: 'Communication Style',
-      content: founderData.communicationStyle,
+      content: founderData?.communicationStyle,
       type: 'text'
     },
     {
       id: 'resilience',
       title: 'Resilience & Grit',
-      content: founderData.resilienceAndGrit,
+      content: founderData?.resilienceAndGrit,
       type: 'text'
     },
     {
       id: 'orientation',
       title: 'Sales or Product Oriented',
-      content: founderData.salesOrProductOriented,
+      content: founderData?.salesOrProductOriented,
       type: 'text'
     },
     {
@@ -153,9 +153,9 @@ const FoundersTab = ({ founderData }) => {
 
   const filteredCards = cards.filter(card => {
     if (card.type === 'collaboration') {
-      return card.content.some(collab => filterContent(collab.text));
+      return card.content?.some(collab => filterContent(collab?.text));
     }
-    return filterContent(card.content);
+    return filterContent(card?.content);
   });
 
   return (
@@ -240,9 +240,9 @@ const FoundersTab = ({ founderData }) => {
                   {card.type === 'overview' && (
                     <div className="text-center py-8">
                       <div className="w-20 h-20 bg-navy rounded-full flex items-center justify-center text-white font-bold text-3xl mx-auto mb-4">
-                        {card.content.split(' ').map(n => n[0]).join('').toUpperCase()}
+                        {card?.content?.split(' ')?.map(n => n?.[0])?.join('')?.toUpperCase()}
                       </div>
-                      <h3 className="text-2xl font-bold text-navy">{card.content}</h3>
+                      <h3 className="text-2xl font-bold text-navy">{card?.content}</h3>
                       <div className="mt-4 flex justify-center">
                         <span className="bg-gold/20 text-navy px-4 py-2 rounded-full text-sm font-semibold">
                           Founder Profile
@@ -254,47 +254,47 @@ const FoundersTab = ({ founderData }) => {
                   {card.type === 'risk' && (
                     <div>
                       <div className="mb-4 flex justify-start">
-                        <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${getRiskBadgeColor(card.content)}`}>
-                          {card.content.split('.')[0]} {/* First sentence for badge */}
+                        <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${getRiskBadgeColor(card?.content)}`}>
+                          {card?.content?.split('.')?.[0]} {/* First sentence for badge */}
                         </span>
                       </div>
-                      <p className="text-gray-600 leading-relaxed">{card.content}</p>
+                      <p className="text-gray-600 leading-relaxed">{card?.content}</p>
                     </div>
                   )}
 
                   {card.type === 'text' && (
                     <div>
-                      <p className="text-gray-600 leading-relaxed">{card.content}</p>
+                      <p className="text-gray-600 leading-relaxed">{card?.content}</p>
                     </div>
                   )}
 
                   {card.type === 'collaboration' && (
                     <div className="space-y-4">
-                      {card.content.map((collab, index) => (
+                      {card?.content?.map((collab, index) => (
                         <div
-                          key={collab.id}
+                          key={collab?.id}
                           className={`p-4 rounded-lg border-l-4 ${
-                            collab.type === 'conflict' 
+                            collab?.type === 'conflict' 
                               ? 'bg-red-50 border-red-400' 
-                              : collab.type === 'support' 
+                              : collab?.type === 'support' 
                                 ? 'bg-green-50 border-green-400' 
                                 : 'bg-gray-50 border-gray-400'
                           } hover:shadow-md transition-all duration-200`}
                         >
                           <div className="flex items-start space-x-3">
-                            <span className="text-xl flex-shrink-0 mt-1">{collab.icon}</span>
+                            <span className="text-xl flex-shrink-0 mt-1">{collab?.icon}</span>
                             <div className="flex-1">
                               <div className={`inline-block px-2 py-1 rounded text-xs font-semibold mb-2 ${
-                                collab.type === 'conflict' 
+                                collab?.type === 'conflict' 
                                   ? 'bg-red-200 text-red-800' 
-                                  : collab.type === 'support' 
+                                  : collab?.type === 'support' 
                                     ? 'bg-green-200 text-green-800' 
                                     : 'bg-gray-200 text-gray-800'
                               }`}>
-                                {collab.type === 'conflict' ? 'Challenging Relationship' : 
-                                 collab.type === 'support' ? 'Supportive Relationship' : 'Professional Relationship'}
+                                {collab?.type === 'conflict' ? 'Challenging Relationship' : 
+                                 collab?.type === 'support' ? 'Supportive Relationship' : 'Professional Relationship'}
                               </div>
-                              <p className="text-gray-600 leading-relaxed text-sm">{collab.text}</p>
+                              <p className="text-gray-600 leading-relaxed text-sm">{collab?.text}</p>
                             </div>
                           </div>
                         </div>
