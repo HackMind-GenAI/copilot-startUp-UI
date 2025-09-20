@@ -46,22 +46,14 @@ const TeamTab = ({ deal, chartInstanceRef, createEquityChart }) => {
           <div className="mt-6">
             <h4 className="font-semibold text-navy mb-4">Equity Breakdown</h4>
             <div className="space-y-3">
-              <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                <span className="text-gray-600">Founders</span>
-                <span className="font-bold text-navy">65%</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                <span className="text-gray-600">Employee Stock Options</span>
-                <span className="font-bold text-navy">15%</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                <span className="text-gray-600">Investors (Previous Rounds)</span>
-                <span className="font-bold text-navy">12%</span>
-              </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="text-gray-600">Reserved for Future Funding</span>
-                <span className="font-bold text-gold">8%</span>
-              </div>
+              {deal.equity.breakdown.map((item, index) => (
+                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="text-gray-600">{item.category}</span>
+                  <span className={`font-bold ${index === deal.equity.breakdown.length - 1 ? 'text-gold' : 'text-navy'}`}>
+                    {item.percentage}%
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

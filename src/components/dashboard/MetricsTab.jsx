@@ -8,34 +8,33 @@ const MetricsTab = ({ deal }) => {
             <div>
               <h4 className="font-semibold text-navy mb-3">Revenue Type</h4>
               <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="text-blue-800 font-semibold">Subscription-based SaaS</p>
-                <p className="text-blue-600 text-sm">Recurring monthly and annual subscriptions</p>
+                <p className="text-blue-800 font-semibold">{deal.business_model.revenue_type.type}</p>
+                <p className="text-blue-600 text-sm">{deal.business_model.revenue_type.description}</p>
               </div>
             </div>
             <div>
               <h4 className="font-semibold text-navy mb-3">Monetization Strategy</h4>
               <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center"><span className="text-gold mr-2">•</span>Tiered subscription plans (Basic, Pro, Enterprise)</li>
-                <li className="flex items-center"><span className="text-gold mr-2">•</span>Usage-based add-ons and premium features</li>
-                <li className="flex items-center"><span className="text-gold mr-2">•</span>Professional services and implementation</li>
-                <li className="flex items-center"><span className="text-gold mr-2">•</span>API access and integration partnerships</li>
+                {deal.business_model.monetization_strategy.map((strategy, index) => (
+                  <li key={index} className="flex items-center">
+                    <span className="text-gold mr-2">•</span>
+                    {strategy}
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-navy mb-3">Pricing Strategy</h4>
               <div className="grid grid-cols-3 gap-3">
-                <div className="text-center p-3 bg-gray-50 rounded-lg">
-                  <div className="font-bold text-navy">$29/mo</div>
-                  <div className="text-xs text-gray-500">Basic</div>
-                </div>
-                <div className="text-center p-3 bg-gold bg-opacity-20 rounded-lg">
-                  <div className="font-bold text-navy">$99/mo</div>
-                  <div className="text-xs text-gray-500">Pro</div>
-                </div>
-                <div className="text-center p-3 bg-navy bg-opacity-10 rounded-lg">
-                  <div className="font-bold text-navy">Custom</div>
-                  <div className="text-xs text-gray-500">Enterprise</div>
-                </div>
+                {deal.business_model.pricing_strategy.map((tier, index) => (
+                  <div key={index} className={`text-center p-3 rounded-lg ${
+                    index === 1 ? 'bg-gold bg-opacity-20' : 
+                    index === 2 ? 'bg-navy bg-opacity-10' : 'bg-gray-50'
+                  }`}>
+                    <div className="font-bold text-navy">{tier.price}</div>
+                    <div className="text-xs text-gray-500">{tier.tier}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

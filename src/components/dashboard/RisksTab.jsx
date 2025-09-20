@@ -41,7 +41,7 @@ const RisksTab = ({ deal }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-4 bg-gray-50 rounded-lg text-center">
                 <h5 className="font-semibold text-navy mb-2">Cash Flow</h5>
-                <p className="text-sm text-gray-600">18 months runway with current burn rate</p>
+                <p className="text-sm text-gray-600">{deal.metrics.runway} runway with current burn rate</p>
               </div>
               <div className="p-4 bg-gray-50 rounded-lg text-center">
                 <h5 className="font-semibold text-navy mb-2">Customer Concentration</h5>
@@ -49,7 +49,7 @@ const RisksTab = ({ deal }) => {
               </div>
               <div className="p-4 bg-gray-50 rounded-lg text-center">
                 <h5 className="font-semibold text-navy mb-2">Currency Risk</h5>
-                <p className="text-sm text-gray-600">12% of revenue in foreign currencies</p>
+                <p className="text-sm text-gray-600">{deal.metrics.foreign_currency_revenue} of revenue in foreign currencies</p>
               </div>
             </div>
           </div>

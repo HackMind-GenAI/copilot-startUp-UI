@@ -46,7 +46,8 @@ export const companiesData = [
       established_players_market_share: "15%+",
       scale_execution_target: "10x",
       cost_leadership_advantage: "25%",
-      market_leader_share: "15.8%"
+      market_leader_share: "15.8%",
+      foreign_currency_revenue: "8%"
     },
     financials: {
       labels: ["2021", "2022", "2023", "2024", "2025 (Proj)"],
@@ -120,6 +121,23 @@ export const companiesData = [
         "24/7 customer success team support"
       ],
       development_stage: "Production Ready"
+    },
+    business_model: {
+      revenue_type: {
+        type: "Subscription-based SaaS",
+        description: "Recurring monthly and annual subscriptions with enterprise licensing"
+      },
+      monetization_strategy: [
+        "Tiered subscription plans (Starter, Professional, Enterprise)",
+        "Usage-based analytics credits and data processing",
+        "Professional services and custom implementation",
+        "API access and white-label partnership deals"
+      ],
+      pricing_strategy: [
+        { tier: "Starter", price: "$499/mo", description: "Small investment firms" },
+        { tier: "Professional", price: "$1,299/mo", description: "Mid-market VCs" },
+        { tier: "Enterprise", price: "Custom", description: "Large institutions" }
+      ]
     },
     competitor: {
       direct_competitors: [
@@ -341,6 +359,61 @@ export const companiesData = [
         risk: "Rapid technological changes making product obsolete",
         mitigation: "Continuous R&D investment and agile development practices"
       }
+    },
+    exit_strategy: {
+      timeline: "5-7 Years",
+      timeline_description: "Projected timeline for strategic exit based on market maturity",
+      potential_valuation: "$800M - $1.2B",
+      valuation_description: "Based on comparable fintech transactions and growth projections",
+      exit_options: [
+        "Strategic acquisition by financial services giant",
+        "IPO on NASDAQ or NYSE",
+        "Private equity buyout from specialized tech funds",
+        "Management buyout with institutional backing"
+      ],
+      strategic_acquirers: [
+        { category: "Financial Services Giants", companies: "Goldman Sachs, JPMorgan, Blackstone, KKR" },
+        { category: "Enterprise Fintech", companies: "Intuit, Fiserv, FIS, Broadridge" },
+        { category: "Private Equity", companies: "Vista Equity, Thoma Bravo, General Atlantic" }
+      ],
+      market_multiples: {
+        revenue_multiple: "6-10x Revenue",
+        growth_premium: "+15-25%",
+        recent_comparables: "B2B healthcare SaaS exits at 8-12x ARR"
+      }
+    },
+
+    legal_compliance: {
+      incorporation: {
+        jurisdiction: "Delaware, USA",
+        entity_type: "C-Corporation",
+        incorporation_date: "2019"
+      },
+      intellectual_property: {
+        patents_filed: "15 Patents Filed",
+        patent_description: "Core AI algorithms and financial data processing methods protected",
+        trademarks: "VentureLens trademark portfolio secured in 12 countries"
+      },
+      regulatory_compliance: [
+        "GDPR Compliant (EU data protection)",
+        "CCPA Compliant (California privacy)",
+        "SOC 2 Type II Certified (security controls)",
+        "SEC Investment Advisor compliance (financial services)",
+        "ISO 27001 Certified (information security)"
+      ],
+      legal_structure: {
+        authorized_shares: "15,000,000",
+        outstanding_shares: "8,750,000",
+        option_pool: "15%"
+      },
+      key_documents: [
+        { icon: "📄", title: "Delaware Certificate of Incorporation", status: "Current" },
+        { icon: "📊", title: "Series A Preferred Stock Purchase Agreement", status: "Executed" },
+        { icon: "⚖️", title: "Key Employee Agreements", status: "Compliant" },
+        { icon: "🔒", title: "IP Assignment and Invention Agreements", status: "Complete" },
+        { icon: "📋", title: "Board of Directors Resolutions", status: "Filed" },
+        { icon: "🏛️", title: "SEC Form D - Private Placement", status: "Current" }
+      ]
     }
   },
   
@@ -388,7 +461,8 @@ export const companiesData = [
       established_players_market_share: "12%+",
       scale_execution_target: "8x",
       cost_leadership_advantage: "35%",
-      market_leader_share: "22.3%"
+      market_leader_share: "22.3%",
+      foreign_currency_revenue: "15%"
     },
     financials: {
       labels: ["2021", "2022", "2023", "2024", "2025 (Proj)"],
@@ -456,6 +530,23 @@ export const companiesData = [
         "Best-in-class customer support"
       ],
       development_stage: "Production Ready"
+    },
+    business_model: {
+      revenue_type: {
+        type: "SaaS with Usage-Based Pricing",
+        description: "Per-user monthly subscriptions with workflow execution credits"
+      },
+      monetization_strategy: [
+        "Per-seat subscription with automation limits",
+        "Premium workflow templates and connectors",
+        "Custom integration development services",
+        "Enterprise training and consulting packages"
+      ],
+      pricing_strategy: [
+        { tier: "Basic", price: "$29/user/mo", description: "Small teams" },
+        { tier: "Pro", price: "$99/user/mo", description: "Growing businesses" },
+        { tier: "Enterprise", price: "Custom", description: "Large organizations" }
+      ]
     },
     competitor: {
       direct_competitors: [
@@ -668,6 +759,60 @@ export const companiesData = [
         risk: "Rapid changes in automation technology stack",
         mitigation: "Continuous platform updates and technology partnerships"
       }
+    },
+    exit_strategy: {
+      timeline: "4-6 Years",
+      timeline_description: "Accelerated timeline due to rapid automation market growth",
+      potential_valuation: "$200M - $400M",
+      valuation_description: "Based on enterprise software automation comparables and market expansion",
+      exit_options: [
+        "Strategic acquisition by enterprise software leader",
+        "Merger with complementary automation platform",
+        "Private equity rollup in workflow automation space",
+        "Secondary sale to larger automation conglomerate"
+      ],
+      strategic_acquirers: [
+        { category: "Enterprise Software Giants", companies: "Salesforce, Microsoft, ServiceNow, Atlassian" },
+        { category: "Workflow Automation Leaders", companies: "UiPath, Automation Anywhere, Blue Prism" },
+        { category: "Private Equity Specialists", companies: "Vista Equity Partners, Insight Partners, Accel-KKR" }
+      ],
+      market_multiples: {
+        revenue_multiple: "8-12x Revenue",
+        growth_premium: "+25-35%",
+        recent_comparables: "Enterprise automation exits at 10-14x ARR"
+      }
+    },
+    legal_compliance: {
+      incorporation: {
+        jurisdiction: "Delaware, USA",
+        entity_type: "C-Corporation",
+        incorporation_date: "2020"
+      },
+      intellectual_property: {
+        patents_filed: "8 Patents Filed",
+        patent_description: "Workflow automation engines and no-code platform architecture",
+        trademarks: "TechFlow brand and product names secured in North America and Europe"
+      },
+      regulatory_compliance: [
+        "GDPR Compliant (European operations)",
+        "CCPA Compliant (data privacy)",
+        "SOC 2 Type I Certified (security framework)",
+        "PIPEDA Compliant (Canadian privacy)",
+        "Enterprise security certifications in progress"
+      ],
+      legal_structure: {
+        authorized_shares: "12,000,000",
+        outstanding_shares: "6,200,000",
+        option_pool: "18%"
+      },
+      key_documents: [
+        { icon: "📄", title: "Delaware Certificate of Incorporation", status: "Current" },
+        { icon: "📊", title: "Seed Round Convertible Note Agreements", status: "Active" },
+        { icon: "⚖️", title: "Employment and Consulting Agreements", status: "Compliant" },
+        { icon: "🔒", title: "Proprietary Information Agreements", status: "Complete" },
+        { icon: "📋", title: "Board Meeting Minutes and Consents", status: "Filed" },
+        { icon: "🏛️", title: "State Corporate Registrations", status: "Current" }
+      ]
     }
   },
 
@@ -715,7 +860,8 @@ export const companiesData = [
       established_players_market_share: "8%+",
       scale_execution_target: "20x",
       cost_leadership_advantage: "50%",
-      market_leader_share: "11.2%"
+      market_leader_share: "11.2%",
+      foreign_currency_revenue: "3%"
     },
     financials: {
       labels: ["2021", "2022", "2023", "2024", "2025 (Proj)"],
@@ -783,6 +929,23 @@ export const companiesData = [
         "HIPAA-compliant security infrastructure"
       ],
       development_stage: "Production Ready"
+    },
+    business_model: {
+      revenue_type: {
+        type: "Freemium with Premium Subscriptions",
+        description: "Free basic consultations with paid chronic disease management plans"
+      },
+      monetization_strategy: [
+        "Monthly chronic disease management subscriptions",
+        "Pay-per-consultation for acute care visits",
+        "Enterprise health plan partnerships",
+        "Pharmaceutical partnership and referral fees"
+      ],
+      pricing_strategy: [
+        { tier: "Basic", price: "Free", description: "Basic health tracking" },
+        { tier: "Care Plan", price: "$49/mo", description: "Chronic disease management" },
+        { tier: "Enterprise", price: "Custom", description: "Healthcare organizations" }
+      ]
     },
     competitor: {
       direct_competitors: [
@@ -995,6 +1158,28 @@ export const companiesData = [
         title: "AI Accuracy",
         risk: "AI diagnostic errors leading to patient safety issues",
         mitigation: "Continuous model improvement and human oversight protocols"
+      }
+    },
+    exit_strategy: {
+      timeline: "6-8 Years",
+      timeline_description: "Longer timeline due to healthcare regulatory requirements and clinical validation",
+      potential_valuation: "$500M - $1.5B",
+      valuation_description: "Based on digital health unicorn valuations and chronic care market potential",
+      exit_options: [
+        "Strategic acquisition by major healthcare system",
+        "Merger with established telemedicine platform",
+        "IPO focused on healthcare technology investors",
+        "Partnership with pharmaceutical companies for chronic care"
+      ],
+      strategic_acquirers: [
+        { category: "Healthcare Giants", companies: "UnitedHealth, Anthem, CVS Health, Humana" },
+        { category: "Digital Health Leaders", companies: "Teladoc, Amwell, Doxy.me, MDLive" },
+        { category: "Healthcare-Focused PE", companies: "Warburg Pincus, TPG Capital, Blackstone Health" }
+      ],
+      market_multiples: {
+        revenue_multiple: "15-25x Revenue",
+        growth_premium: "+40-60%",
+        recent_comparables: "Digital health exits at 20-30x ARR due to market premiums"
       }
     }
   }
