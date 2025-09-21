@@ -337,9 +337,6 @@ What specific aspect would you like me to dive deeper into?`;
       case 'devils-advocate':
         return <DevilsAdvocateTab deal={deal} apiResponse={deal.devilsAdvocateAnalysis} />;
 
-      case 'risks':
-        return <RisksTab deal={deal} />;
-
       case 'exit':
         return <ExitTab deal={deal} />;
 
@@ -391,10 +388,9 @@ What specific aspect would you like me to dive deeper into?`;
                 { id: 'financials', label: dashboard.tabs.financials },
                 { id: 'metrics', label: dashboard.tabs.metrics },
                 { id: 'team', label: dashboard.tabs.team },
-                { id: 'founders', label: 'Founders' },
+                { id: 'founders', label: 'Founder\'s Profiling' },
                 { id: 'competitor', label: dashboard.tabs.competitor },
                 { id: 'devils-advocate', label: dashboard.tabs.devilsAdvocate },
-                { id: 'risks', label: dashboard.tabs.risks },
                 { id: 'exit', label: dashboard.tabs.exit },
                 { id: 'documents', label: dashboard.tabs.documents },
                 { id: 'founderProfile', label: dashboard.tabs.founderProfile }
