@@ -23,7 +23,7 @@ function App() {
   const [allDeals, setAllDeals] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/records")
+    fetch("https://test-proj-579933942765.us-central1.run.app/records")
       .then(response => response.json())
       .then(data => {
         const modifiedData = data?.records.map(record => {

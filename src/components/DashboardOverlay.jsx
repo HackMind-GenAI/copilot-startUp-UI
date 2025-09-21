@@ -80,7 +80,7 @@ const DashboardOverlay = ({ onClose, companyData }) => {
   useEffect(() => {
     // get first team member whose role includes 'founder'
     if (firstFounder?.name?.length > 0) {
-      fetch('http://localhost:8000/founder-summary',{
+      fetch('https://test-proj-579933942765.us-central1.run.app/founder-summary',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ founder: firstFounder.name })
@@ -107,7 +107,7 @@ const DashboardOverlay = ({ onClose, companyData }) => {
         role: item.type === 'ai' ? 'assistant' : 'user'
       })) || [],
     }
-    fetch('http://localhost:8000/chat', {
+    fetch('https://test-proj-579933942765.us-central1.run.app/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(apiPayload)
