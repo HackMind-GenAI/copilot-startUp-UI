@@ -101,7 +101,7 @@ const DashboardOverlay = ({ onClose, companyData }) => {
     const apiPayload = {
       message: question,
       query_type:"default",
-      startup_id:"startup-123",
+      startup_id:"",
       history: aiMessages?.map(item => ({
         text: item.text,
         role: item.type === 'ai' ? 'assistant' : 'user'
