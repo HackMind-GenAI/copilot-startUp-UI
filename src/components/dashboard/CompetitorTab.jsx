@@ -7,7 +7,7 @@ const CompetitorTab = ({ deal }) => {
           <div>
             <h4 className="font-semibold text-navy mb-4">Direct Competitors</h4>
             <div className="space-y-4">
-              {deal.competitor.direct_competitors.map((competitor, index) => (
+              {deal.competitor.direct_competitors?.map((competitor, index) => (
                 <div key={competitor.id} className="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
                   <h5 className="font-bold text-navy mb-2">{competitor.name}</h5>
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -66,7 +66,7 @@ const CompetitorTab = ({ deal }) => {
                   <td className="p-3 text-green-600">{deal.metrics.technology_score}</td>
                   <td className="p-3"><span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Strong Buy</span></td>
                 </tr>
-                {deal.competitor.direct_competitors.map((competitor, index) => (
+                {deal.competitor.direct_competitors?.map((competitor, index) => (
                   <tr key={competitor.id} className="border-b border-gray-200">
                     <td className="p-3">{competitor.name}</td>
                     <td className="p-3 font-semibold text-blue-600">{competitor.market_share}</td>

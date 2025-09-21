@@ -199,11 +199,11 @@ export const appConfig = {
       metrics: "Business Metrics",
       competitor: "Competitive Analysis",
       team: "Team & Leadership",
+      founders: "Founder Profile Analysis",
       devilsAdvocate: "Devil's Advocate",
       risks: "Risk Assessment", 
       exit: "Exit Strategy",
-      documents: "Legal & Compliance",
-      founderProfile: "Founder Profile Analysis"
+      documents: "Legal & Compliance"
     },
     
     sections: {
